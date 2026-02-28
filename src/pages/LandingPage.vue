@@ -79,13 +79,12 @@
         </div>
         <router-link to="/sandbox" class="sandbox-card">
           <div class="sandbox-preview">
-            <iframe
-              src="/sandbox"
-              class="sandbox-iframe"
-              title="N8N Sandbox Preview"
+            <img
+              src="/images/n8n.webp"
+              alt="N8N Sandbox Preview"
+              class="sandbox-img"
               loading="lazy"
-              scrolling="no"
-            ></iframe>
+            />
             <div class="sandbox-overlay">
               <span class="sandbox-cta">Open Interactive Sandbox &rarr;</span>
             </div>
@@ -585,19 +584,18 @@ onUnmounted(() => {
   background: #0f0f0f;
 }
 
-.sandbox-iframe {
-  width: 200%;
-  height: 200%;
-  border: none;
-  transform: scale(0.5);
-  transform-origin: top left;
+.sandbox-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
   pointer-events: none;
   filter: brightness(0.85);
   transition: transform 0.5s ease;
 }
 
-.sandbox-card:hover .sandbox-iframe {
-  transform: scale(0.55) translate(-4.5%, -4.5%);
+.sandbox-card:hover .sandbox-img {
+  transform: scale(1.05);
 }
 
 .sandbox-overlay {
