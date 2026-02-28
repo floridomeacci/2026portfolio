@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+.animate-dash {
+  animation: dash 1s linear infinite;
+}
+
+.vue-flow__node.text-overlay-node {
+  z-index: -1 !important;
+  pointer-events: none;
+}
+
+.dark-mode .vue-flow__controls-button {
+  background: #404040 !important;
+  border-color: #525252 !important;
+  color: #e5e5e5 !important;
+}
+
+.dark-mode .vue-flow__controls-button:hover {
+  background: #525252 !important;
+  border-color: #737373 !important;
+}
+
+.dark-mode .vue-flow__controls-button svg {
+  color: #e5e5e5 !important;
+}
+
+.dark-mode .vue-flow__edge-textwrapper {
+  background: #404040 !important;
+}
+
+.dark-mode .vue-flow__edge-text {
+  fill: #e5e5e5 !important;
+}
+
+.vue-flow__node[id^="bullet-"] .vue-flow__handle {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}

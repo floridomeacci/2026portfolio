@@ -1,0 +1,24 @@
+{
+  "name": "Florido Signature",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "Florido Meacci\nCreative Technologist\n@ TBWA\\"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        920,
+        520
+      ],
+      "id": "597c6607-7f9e-4c09-8be7-ecdf66dd3e86",
+      "name": "Sticky Note7"
+    }
+  ],
+  "connections": {},
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "14a67807f544266b96bbdb9653e322ae556ca521ec0cacc890f9fd4972a117c4"
+  }
+}
