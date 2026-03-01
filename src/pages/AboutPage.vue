@@ -3,8 +3,8 @@
     <header class="cv-header">
       <router-link to="/" class="back-link" title="Home">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <span class="header-label">About</span>
       </router-link>
-      <span class="header-label">About</span>
     </header>
 
     <main class="cv-body">
@@ -216,7 +216,7 @@ const onMouseMove = (e: MouseEvent) => {
 .back-link {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
   color: var(--ink);
   opacity: .5;
   transition: opacity .2s;

@@ -99,7 +99,7 @@
       <!-- Quick About -->
       <section class="section">
         <div class="sec-hdr">
-          <span>Passion Project</span>
+          <span>Personal Projects</span>
           <span class="idx">03</span>
         </div>
         <a href="https://reddituser.info" target="_blank" rel="noopener" class="passion-card">
@@ -116,6 +116,21 @@
             </div>
           </div>
           <p class="passion-desc">A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.</p>
+        </a>
+        <a href="https://www.dumpindex.eu" target="_blank" rel="noopener" class="passion-card" style="margin-top: 24px;">
+          <div class="passion-preview">
+            <iframe
+              src="https://www.dumpindex.eu"
+              class="passion-iframe"
+              title="dumpindex.eu Preview"
+              loading="lazy"
+              scrolling="no"
+            ></iframe>
+            <div class="passion-overlay">
+              <span class="passion-cta">Visit dumpindex.eu <span class="arrow">&rarr;</span></span>
+            </div>
+          </div>
+          <p class="passion-desc">An interactive ranking of Europe's dirtiest cities — exploring pollution, waste and environmental data across the continent.</p>
         </a>
       </section>
 
