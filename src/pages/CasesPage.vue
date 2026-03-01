@@ -153,6 +153,14 @@ const cases = ref<CaseItem[]>([
     images: [img('abdul_thumb.webp')]
   },
   {
+    title: 'New Care Supplements',
+    client: 'New Care — Sabatoka',
+    description: "For the Dutch brand New Care Supplements, I create all social and campaign assets throughout the year. Along the way, I developed a custom 3D and AI content production pipeline — combining Cinema 4D, AI generation, and animation to deliver high-volume visual content at speed.",
+    tags: ['3D', 'AI', 'Social', 'Animation', 'Content Pipeline'],
+    videos: ['/cases/videos/newcare1.mp4', '/cases/videos/newcare2.mp4', '/cases/videos/newcare3.mp4', '/cases/videos/newcare4.mp4', '/cases/videos/newcare5.mp4', '/cases/videos/newcare6.mp4', '/cases/videos/newcare7.mp4'],
+    images: [img('newcare1.webp'), img('newcare2.webp'), img('newcare3.webp')]
+  },
+  {
     title: "McDonald's The Hidden Campaign",
     client: "McDonald's — TBWA\\NEBOKO",
     description: "McDonald's re-entered gaming culture by hiding easter eggs across popular games, Twitch streams, and the McDonald's app — featuring a custom Moonlander arcade game. Responsible for all 3D design and 3D animation.",
