@@ -45,11 +45,11 @@
             </div>
 
             <div v-if="c.video" class="entry-media">
-              <video :src="c.video" controls preload="metadata" class="entry-video"></video>
+              <video :src="c.video" :poster="posterFor(c.video)" controls preload="metadata" class="entry-video"></video>
             </div>
 
             <div v-if="c.videos && c.videos.length" v-for="(vid, vi) in c.videos" :key="'v'+vi" class="entry-media">
-              <video :src="vid" controls preload="metadata" class="entry-video"></video>
+              <video :src="vid" :poster="posterFor(vid)" controls preload="metadata" class="entry-video"></video>
             </div>
 
             <div v-if="c.images && c.images.length" class="entry-images" :class="{ 'dark-bg': c.darkBg }">
@@ -90,6 +90,7 @@ const mediaCount = (c: CaseItem) => {
 }
 
 const img = (name: string) => '/cases/images/' + name
+const posterFor = (v: string) => v.replace('/cases/videos/', '/cases/videos/posters/').replace('.mp4', '.webp')
 const range = (s: number, e: number) => Array.from({ length: e - s + 1 }, (_, i) => s + i)
 
 const cases = ref<CaseItem[]>([
