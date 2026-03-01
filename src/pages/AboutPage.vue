@@ -14,7 +14,7 @@
           <img :src="faceImgSrc" alt="Florido Jan Meacci" class="profile-pic face-pic" />
         </div>
         <!-- Mobile: static pic -->
-        <img src="/picture.png" alt="Florido Jan Meacci" class="profile-pic mobile-only" />
+        <img src="/picture.webp" alt="Florido Jan Meacci" class="profile-pic mobile-only" />
         <h1 class="titleline">Florido Jan Meacci,<br/>Creative Technologist</h1>
       </div>
 
@@ -79,7 +79,7 @@
             <div class="contact-list">
               <a href="mailto:florido@sbtk.nl">florido@sbtk.nl</a>
               <a href="https://www.linkedin.com/in/florido-jan-meacci" target="_blank" rel="noopener">linkedin.com/in/florido-jan-meacci</a>
-              <a href="https://www.floridogpt.com" target="_blank" rel="noopener">floridogpt.com</a>
+              <a href="https://www.floridomeacci.xyz" target="_blank" rel="noopener">floridomeacci.xyz</a>
               <a href="https://github.com/floridomeacci" target="_blank" rel="noopener">github.com/floridomeacci</a>
             </div>
           </section>

@@ -7,7 +7,7 @@
         <div class="footer-links">
           <a href="https://www.linkedin.com/in/florido-jan-meacci" target="_blank" rel="noopener">LINKEDIN</a>
           <a href="https://github.com/floridomeacci" target="_blank" rel="noopener">GITHUB</a>
-          <a href="https://www.floridogpt.com" target="_blank" rel="noopener">FLORIDOGPT.COM</a>
+          <a href="https://www.floridomeacci.xyz" target="_blank" rel="noopener">FLORIDOMEACCI.XYZ</a>
         </div>
       </div>
 

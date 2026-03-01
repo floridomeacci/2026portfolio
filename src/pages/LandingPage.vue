@@ -19,7 +19,10 @@
       <!-- Hero: Name + Profile Pic -->
       <section class="hero">
         <div class="hero-pic-wrap">
-          <img src="/picture.png" alt="Florido Jan Meacci" class="hero-pic" />
+          <div class="hero-pic-inner">
+            <img :src="heroPicSrc" alt="Florido Jan Meacci" class="hero-pic" :class="{ blurred: heroBlurred }" />
+          </div>
+          <span class="hero-pic-label">{{ heroLabelText }}<span class="type-cursor">|</span></span>
         </div>
         <pre class="titleline">
 ███████╗██╗      ██████╗ ██████╗ ██╗██████╗  ██████╗
@@ -68,7 +71,7 @@
             </div>
           </div>
         </div>
-        <router-link to="/cases" class="cases-directory">View all cases &rarr;</router-link>
+        <router-link to="/cases" class="cases-directory">View all cases <span class="arrow">&rarr;</span></router-link>
       </section>
 
       <!-- Sandbox Preview -->
@@ -86,7 +89,7 @@
               loading="lazy"
             />
             <div class="sandbox-overlay">
-              <span class="sandbox-cta">Open Interactive Sandbox &rarr;</span>
+              <span class="sandbox-cta">Open Interactive Sandbox <span class="arrow">&rarr;</span></span>
             </div>
           </div>
           <p class="sandbox-desc">Explore my interactive N8N-style workflow playground — drag nodes, connect ideas.</p>
@@ -109,7 +112,7 @@
               scrolling="no"
             ></iframe>
             <div class="passion-overlay">
-              <span class="passion-cta">Visit reddituser.info &rarr;</span>
+              <span class="passion-cta">Visit reddituser.info <span class="arrow">&rarr;</span></span>
             </div>
           </div>
           <p class="passion-desc">A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.</p>
@@ -125,7 +128,7 @@
         <router-link to="/about" class="about-card">
           <div class="about-content">
             <p class="about-text">Creative Technologist at TBWA\NEBOKO, bridging design and development. I build AI-driven campaigns, interactive installations, and digital products — turning ideas into things people can experience.</p>
-            <span class="view-about">Read more &rarr;</span>
+            <span class="view-about">Read more <span class="arrow">&rarr;</span></span>
           </div>
         </router-link>
       </section>
@@ -143,6 +146,56 @@ const mouseX = ref(0)
 const mouseY = ref(0)
 const scrollY = ref(0)
 const gridVisible = ref(false)
+
+// Hero pic typewriter loop
+const heroVariants = [
+  { img: '/picture.webp', text: '...wearing a beanie and overcoat' },
+  { img: '/astronaut.webp', text: '...dressed as an astronaut' },
+  { img: '/bear.webp', text: '...dressed as a bear' },
+  { img: '/samurai.webp', text: '...dressed as a samurai' },
+]
+const heroIndex = ref(0)
+const heroLabelText = ref('')
+const heroPicSrc = ref(heroVariants[0].img)
+const heroBlurred = ref(false)
+let heroTimer: ReturnType<typeof setTimeout> | null = null
+
+function runTypewriter() {
+  const variant = heroVariants[heroIndex.value]
+  heroPicSrc.value = variant.img
+  // unblur as typing begins
+  requestAnimationFrame(() => { heroBlurred.value = false })
+  const text = variant.text
+  let i = 0
+
+  function typeNext() {
+    if (i <= text.length) {
+      heroLabelText.value = text.slice(0, i)
+      i++
+      heroTimer = setTimeout(typeNext, 60)
+    } else {
+      // pause before backspacing
+      heroTimer = setTimeout(() => {
+        // start blurring as backspace begins
+        heroBlurred.value = true
+        backspaceNext()
+      }, 1800)
+    }
+  }
+
+  function backspaceNext() {
+    if (heroLabelText.value.length > 0) {
+      heroLabelText.value = heroLabelText.value.slice(0, -1)
+      heroTimer = setTimeout(backspaceNext, 35)
+    } else {
+      // swap image while blurred, then start next
+      heroIndex.value = (heroIndex.value + 1) % heroVariants.length
+      heroTimer = setTimeout(runTypewriter, 300)
+    }
+  }
+
+  typeNext()
+}
 
 // Red accent cells snapped to 28px grid
 const G = 28
@@ -255,11 +308,14 @@ onMounted(() => {
     el.scrollLeft = el.scrollWidth / 3
     el.addEventListener('scroll', onScroll)
   }
+  // Start typewriter loop
+  runTypewriter()
 })
 
 onUnmounted(() => {
   const el = scrollRef.value
   if (el) el.removeEventListener('scroll', onScroll)
+  if (heroTimer) clearTimeout(heroTimer)
 })
 </script>
 
@@ -321,6 +377,16 @@ onUnmounted(() => {
   border: 1px solid rgba(220, 40, 40, 0.18);
 }
 
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+@keyframes arrow-nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
 /* Header nav */
 .cv-header {
   position: sticky;
@@ -377,6 +443,42 @@ onUnmounted(() => {
   grid-column: 2;
   grid-row: 1 / 3;
   align-self: start;
+  position: relative;
+}
+
+.hero-pic-inner {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.hero-pic-label {
+  position: absolute;
+  bottom: -18px;
+  left: calc(50% + 20px);
+  transform: translateX(-50%);
+  background: #fff;
+  border: 1px solid #d0d0d0;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-style: italic;
+  color: #666;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.type-cursor {
+  display: inline-block;
+  animation: blink-cursor 0.6s step-end infinite;
+  font-style: normal;
+  margin-left: 1px;
+  color: #999;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .titleline {
@@ -427,7 +529,12 @@ onUnmounted(() => {
   object-fit: cover;
   object-position: center 20%;
   border-radius: 6px;
-  filter: grayscale(0.1);
+  filter: grayscale(0.1) blur(0px);
+  transition: filter 1.2s ease;
+}
+
+.hero-pic.blurred {
+  filter: grayscale(0.1) blur(10px);
 }
 
 /* Section headers (CV style) */
@@ -562,6 +669,10 @@ onUnmounted(() => {
   opacity: 0.8;
 }
 
+.cases-directory:hover .arrow {
+  animation: arrow-nudge 0.8s ease-in-out infinite;
+}
+
 /* Sandbox Preview */
 .sandbox-card {
   display: block;
@@ -622,6 +733,10 @@ onUnmounted(() => {
 
 .sandbox-card:hover .sandbox-cta {
   opacity: 0.8;
+}
+
+.sandbox-card:hover .arrow {
+  animation: arrow-nudge 0.8s ease-in-out infinite;
 }
 
 .sandbox-desc {
@@ -700,6 +815,10 @@ onUnmounted(() => {
   opacity: 0.9;
 }
 
+.passion-card:hover .arrow {
+  animation: arrow-nudge 0.8s ease-in-out infinite;
+}
+
 /* About Card */
 .about-card {
   display: block;
@@ -739,6 +858,10 @@ onUnmounted(() => {
   opacity: 0.8;
 }
 
+.about-card:hover .arrow {
+  animation: arrow-nudge 0.8s ease-in-out infinite;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .cv-header {
@@ -762,6 +885,13 @@ onUnmounted(() => {
     align-self: center;
   }
 
+  .hero-pic-label {
+    bottom: -16px;
+    left: calc(50% + 30px);
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+
   .titleline {
     grid-column: 2;
     grid-row: 1;
@@ -773,6 +903,7 @@ onUnmounted(() => {
   .hero-sub {
     grid-column: 1 / -1;
     grid-row: 2;
+    margin-top: 20px;
   }
 
   .role {

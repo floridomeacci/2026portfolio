@@ -50,13 +50,6 @@
           </svg>
         </button>
         <button
-          @click="openContactForm"
-          class="vue-flow__controls-button vue-flow__controls-interactive"
-          title="Contact"
-        >
-          <img src="/icons/smtp.svg" alt="Contact" style="width: 16px; height: 16px; display: block;" />
-        </button>
-        <button
           @click="toggleWorkflow"
           class="vue-flow__controls-button vue-flow__controls-interactive"
           :title="isCleanedUp ? 'Show Full Portfolio' : 'Show Clean Portfolio'"
@@ -126,10 +119,6 @@
       @close="closeSettingsPanel"
     />
 
-    <ContactForm
-      :is-open="isContactFormOpen"
-      @close="closeContactForm"
-    />
   </div>
 </template>
 
