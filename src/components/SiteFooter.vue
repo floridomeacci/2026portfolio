@@ -21,6 +21,14 @@
         </div>
       </div>
 
+      <div class="footer-row">
+        <span class="footer-label">PROJECTS</span>
+        <div class="footer-links">
+          <a href="https://reddituser.info" target="_blank" rel="noopener">REDDITUSER.INFO</a>
+          <a href="https://www.dumpindex.eu" target="_blank" rel="noopener">DUMPINDEX.EU</a>
+        </div>
+      </div>
+
       <div class="footer-row footer-row--email">
         <a href="mailto:florido@sbtk.nl" class="footer-email">FLORIDO@SBTK.NL</a>
       </div>
