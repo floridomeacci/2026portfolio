@@ -16,7 +16,7 @@
         <div class="footer-links">
           <router-link to="/">HOME</router-link>
           <router-link to="/cases">CASES</router-link>
-          <router-link to="/sandbox">SANDBOX</router-link>
+          <router-link to="/sandbox">N8N SANDBOX</router-link>
           <router-link to="/about">ABOUT</router-link>
         </div>
       </div>

@@ -8,11 +8,11 @@
     </div>
     <!-- Header -->
     <header class="cv-header">
-      <router-link to="/about" class="header-link">About</router-link>
-      <span class="header-sep">/</span>
       <router-link to="/cases" class="header-link">Cases</router-link>
       <span class="header-sep">/</span>
-      <router-link to="/sandbox" class="header-link">Sandbox</router-link>
+      <router-link to="/sandbox" class="header-link">N8N Sandbox</router-link>
+      <span class="header-sep">/</span>
+      <router-link to="/about" class="header-link">About</router-link>
     </header>
 
     <main class="cv-body">
@@ -77,7 +77,7 @@
       <!-- Sandbox Preview -->
       <section class="section">
         <div class="sec-hdr">
-          <span>Sandbox</span>
+          <span>N8N Sandbox</span>
           <span class="idx">02</span>
         </div>
         <router-link to="/sandbox" class="sandbox-card">
@@ -698,12 +698,13 @@ onUnmounted(() => {
 
 .sandbox-img {
   width: 100%;
-  height: 100%;
+  height: calc(100% + 30px);
   object-fit: cover;
   object-position: center top;
   pointer-events: none;
   filter: brightness(0.85);
   transition: transform 0.5s ease;
+  margin-top: -30px;
 }
 
 .sandbox-card:hover .sandbox-img {
