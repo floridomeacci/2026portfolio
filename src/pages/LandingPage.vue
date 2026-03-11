@@ -117,17 +117,17 @@
           </div>
           <p class="passion-desc">A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.</p>
         </a>
-        <a href="https://www.dumpindex.eu" target="_blank" rel="noopener" class="passion-card" style="margin-top: 24px;">
+        <a href="https://www.latentsearch.net/" target="_blank" rel="noopener" class="passion-card" style="margin-top: 24px;">
           <div class="passion-preview">
             <iframe
-              src="https://www.dumpindex.eu"
+              src="https://www.latentsearch.net/"
               class="passion-iframe"
-              title="dumpindex.eu Preview"
+              title="latentsearch.net Preview"
               loading="lazy"
               scrolling="no"
             ></iframe>
             <div class="passion-overlay">
-              <span class="passion-cta">Visit dumpindex.eu <span class="arrow">&rarr;</span></span>
+              <span class="passion-cta">Visit latentsearch.net <span class="arrow">&rarr;</span></span>
             </div>
           </div>
           <p class="passion-desc">An interactive ranking of Europe's dirtiest cities — exploring pollution, waste and environmental data across the continent.</p>

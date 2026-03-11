@@ -25,7 +25,7 @@
         <span class="footer-label">PROJECTS</span>
         <div class="footer-links">
           <a href="https://reddituser.info" target="_blank" rel="noopener">REDDITUSER.INFO</a>
-          <a href="https://www.dumpindex.eu" target="_blank" rel="noopener">DUMPINDEX.EU</a>
+          <a href="https://www.latentsearch.net/" target="_blank" rel="noopener">LATENTSEARCH.NET</a>
         </div>
       </div>
 
