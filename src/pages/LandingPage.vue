@@ -130,7 +130,7 @@
               <span class="passion-cta">Visit latentsearch.net <span class="arrow">&rarr;</span></span>
             </div>
           </div>
-          <p class="passion-desc">An interactive ranking of Europe's dirtiest cities — exploring pollution, waste and environmental data across the continent.</p>
+          <p class="passion-desc">An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.</p>
         </a>
       </section>
 
