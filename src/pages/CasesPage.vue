@@ -75,7 +75,21 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const expandedCase = ref<number | null>(null)
-const toggleCase = (i: number) => { expandedCase.value = expandedCase.value === i ? null : i }
+const toggleCase = (i: number) => {
+  const closing = expandedCase.value === i
+  expandedCase.value = closing ? null : i
+  if (!closing) {
+    nextTick(() => {
+      const slug = slugify(cases.value[i].title)
+      const el = document.getElementById('case-' + slug)
+      if (el) {
+        const headerH = 60 // sticky header height
+        const top = el.getBoundingClientRect().top + window.scrollY - headerH
+        window.scrollTo({ top, behavior: 'smooth' })
+      }
+    })
+  }
+}
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 
@@ -236,13 +250,11 @@ onMounted(() => {
 
 <style scoped>
 .cv-page {
-  --bg: #f8f8f8;
-  --ink: #0f0f0f;
   width: 100%;
   min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -254,25 +266,27 @@ onMounted(() => {
   align-items: center;
   gap: 14px;
   padding: 18px 32px;
-  background: var(--bg);
-  border-bottom: 1px solid rgba(0,0,0,.08);
+  background: oklch(97.5% 0.008 45 / 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
 .back-link {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-sm);
   color: var(--ink);
   opacity: .5;
-  transition: opacity .2s;
+  transition: opacity var(--duration-fast) var(--ease-out);
   text-decoration: none;
 }
 .back-link:hover { opacity: 1; }
 
 .header-label {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 300;
-  font-size: 14px;
+  font-size: var(--text-sm);
   letter-spacing: .3px;
 }
 
@@ -289,9 +303,9 @@ onMounted(() => {
   align-items: baseline;
   padding-bottom: 10px;
   margin-bottom: 32px;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 300;
-  font-size: 11px;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--ink);
@@ -302,12 +316,11 @@ onMounted(() => {
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 1px solid #000;
-  opacity: .15;
+  border-top: 1px solid var(--border);
 }
 .sec-hdr .idx {
-  font-size: 10px;
-  opacity: .4;
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
 }
 
 .cases-list {
@@ -316,23 +329,23 @@ onMounted(() => {
 }
 
 .case-entry {
-  border-bottom: 1px solid rgba(0,0,0,.06);
+  border-bottom: 1px solid var(--border);
   cursor: pointer;
-  transition: background .15s;
+  transition: background var(--duration-fast) var(--ease-out);
 }
 .case-entry:hover {
-  background: rgba(0,0,0,.015);
+  background: oklch(15% 0.008 45 / 0.015);
 }
 .case-entry.open {
-  background: rgba(0,0,0,.02);
+  background: oklch(15% 0.008 45 / 0.02);
   cursor: default;
 }
 
 .entry-bar {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 18px 4px;
+  gap: var(--space-md);
+  padding: 18px var(--space-xs);
 }
 
 .entry-text {
@@ -344,61 +357,61 @@ onMounted(() => {
 }
 
 .entry-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 600;
   line-height: 1.3;
   color: var(--ink);
 }
 
 .entry-client {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: .5px;
-  color: #777;
+  color: var(--ink-faint);
 }
 
 .entry-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: var(--space-xs);
 }
 
 .entry-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 8px;
+  font-family: var(--font-body);
+  font-size: 0.5rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .4px;
-  padding: 3px 8px;
+  padding: 3px var(--space-sm);
   border-radius: 2px;
-  background: rgba(0,0,0,.04);
-  color: #555;
+  background: oklch(15% 0.008 45 / 0.04);
+  color: var(--ink-muted);
   white-space: nowrap;
 }
 
 .entry-count {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 9px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
   font-weight: 300;
-  color: #999;
+  color: var(--ink-faint);
   white-space: nowrap;
 }
 
 .chevron {
   flex-shrink: 0;
-  color: #999;
-  transition: transform .25s ease;
+  color: var(--ink-faint);
+  transition: transform var(--duration-mid) var(--ease-out);
 }
 .chevron.rotated {
   transform: rotate(180deg);
 }
 
 .entry-expand {
-  padding: 0 4px 28px;
-  animation: fadeSlide .25s ease;
+  padding: 0 var(--space-xs) 28px;
+  animation: fadeSlide var(--duration-mid) var(--ease-out-quint);
 }
 
 @keyframes fadeSlide {
@@ -407,24 +420,24 @@ onMounted(() => {
 }
 
 .entry-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 400;
   line-height: 170%;
-  color: #333;
+  color: var(--ink-muted);
   margin: 0 0 20px;
   max-width: 560px;
 }
 
 .entry-media {
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
 }
 
 .entry-video {
   width: 100%;
   max-width: 640px;
   border-radius: 3px;
-  background: #000;
+  background: var(--ink);
 }
 
 .entry-youtube {
@@ -432,7 +445,7 @@ onMounted(() => {
   max-width: 640px;
   aspect-ratio: 16 / 9;
   border-radius: 3px;
-  background: #000;
+  background: var(--ink);
 }
 
 .entry-images {
@@ -449,7 +462,7 @@ onMounted(() => {
 }
 
 .entry-images.dark-bg .entry-img {
-  background: #2c2c2c;
+  background: oklch(25% 0.008 45);
   padding: 20px;
   border-radius: 6px;
 }
@@ -459,9 +472,9 @@ onMounted(() => {
   .cv-body { padding: 28px 18px 60px; }
   .entry-tags { display: none; }
   .entry-bar { padding: 14px 2px; gap: 10px; }
-  .entry-title { font-size: 13px; }
-  .entry-client { font-size: 8px; }
-  .entry-desc { font-size: 11px; max-width: 100%; }
+  .entry-title { font-size: var(--text-sm); }
+  .entry-client { font-size: var(--text-xs); }
+  .entry-desc { font-size: var(--text-sm); max-width: 100%; }
   .entry-video,
   .entry-youtube,
   .entry-img { max-width: 100%; }

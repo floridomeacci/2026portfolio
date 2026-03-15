@@ -15,9 +15,9 @@
       <router-link to="/about" class="header-link">About</router-link>
     </header>
 
-    <main class="cv-body">
+    <main id="main-content" class="cv-body">
       <!-- Hero: Name + Profile Pic -->
-      <section class="hero">
+      <section class="hero reveal">
         <div class="hero-pic-wrap">
           <div class="hero-pic-inner">
             <img :src="heroPicSrc" alt="Florido Jan Meacci" class="hero-pic" :class="{ blurred: heroBlurred }" />
@@ -46,7 +46,7 @@
       </section>
 
       <!-- Cases -->
-      <section class="section" id="cases">
+      <section class="section reveal" id="cases">
         <div class="sec-hdr">
           <span>Cases</span>
           <span class="idx">01</span>
@@ -75,7 +75,7 @@
       </section>
 
       <!-- Sandbox Preview -->
-      <section class="section">
+      <section class="section reveal">
         <div class="sec-hdr">
           <span>N8N Sandbox</span>
           <span class="idx">02</span>
@@ -96,46 +96,50 @@
         </router-link>
       </section>
 
-      <!-- Quick About -->
-      <section class="section">
+      <!-- Personal Projects -->
+      <section class="section reveal">
         <div class="sec-hdr">
           <span>Personal Projects</span>
           <span class="idx">03</span>
         </div>
-        <a href="https://reddituser.info" target="_blank" rel="noopener" class="passion-card">
-          <div class="passion-preview">
-            <iframe
-              src="https://reddituser.info"
-              class="passion-iframe"
-              title="reddituser.info Preview"
-              loading="lazy"
-              scrolling="no"
-            ></iframe>
-            <div class="passion-overlay">
-              <span class="passion-cta">Visit reddituser.info <span class="arrow">&rarr;</span></span>
-            </div>
+        <div
+          class="passion-scroll-wrap"
+          ref="passionRef"
+          @pointerdown="onPassionPointerDown"
+          @pointermove="onPassionPointerMove"
+          @pointerup="onPassionPointerUp"
+          @pointerleave="onPassionPointerUp"
+        >
+          <div class="passion-scroll">
+            <a
+              v-for="(p, i) in loopPassion"
+              :key="i"
+              :href="p.url"
+              target="_blank"
+              rel="noopener"
+              class="passion-card"
+              @click.prevent="openPassionLink(p.url)"
+            >
+              <div class="passion-preview">
+                <iframe
+                  :src="p.url"
+                  class="passion-iframe"
+                  :title="p.label + ' Preview'"
+                  loading="lazy"
+                  scrolling="no"
+                ></iframe>
+                <div class="passion-overlay">
+                  <span class="passion-cta">Visit {{ p.label }} <span class="arrow">&rarr;</span></span>
+                </div>
+              </div>
+              <p class="passion-desc">{{ p.desc }}</p>
+            </a>
           </div>
-          <p class="passion-desc">A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.</p>
-        </a>
-        <a href="https://www.latentsearch.net/" target="_blank" rel="noopener" class="passion-card" style="margin-top: 24px;">
-          <div class="passion-preview">
-            <iframe
-              src="https://www.latentsearch.net/"
-              class="passion-iframe"
-              title="latentsearch.net Preview"
-              loading="lazy"
-              scrolling="no"
-            ></iframe>
-            <div class="passion-overlay">
-              <span class="passion-cta">Visit latentsearch.net <span class="arrow">&rarr;</span></span>
-            </div>
-          </div>
-          <p class="passion-desc">An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.</p>
-        </a>
+        </div>
       </section>
 
-      <!-- Quick About -->
-      <section class="section">
+      <!-- About -->
+      <section class="section reveal">
         <div class="sec-hdr">
           <span>About</span>
           <span class="idx">04</span>
@@ -156,6 +160,9 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+
+// Scroll-reveal IntersectionObserver
+let revealObserver: IntersectionObserver | null = null
 
 const mouseX = ref(0)
 const mouseY = ref(0)
@@ -259,7 +266,15 @@ const topCases = [
 
 const loopCases = computed(() => [...topCases, ...topCases, ...topCases])
 
-// Drag-to-scroll + infinite loop
+const passionProjects = [
+  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.' },
+  { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.' },
+  { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'Lower AI API spend without changing the models your team already trusts — a private-beta marketplace with vetted buyers and anonymous sellers, where buyers save 20% and sellers earn from spare capacity.' },
+]
+
+const loopPassion = computed(() => [...passionProjects, ...passionProjects, ...passionProjects])
+
+// Drag-to-scroll + infinite loop (Cases)
 const scrollRef = ref<HTMLElement | null>(null)
 let isDragging = false
 let hasDragged = false
@@ -316,6 +331,55 @@ const onScroll = () => {
   }
 }
 
+// Drag-to-scroll + infinite loop (Passion projects)
+const passionRef = ref<HTMLElement | null>(null)
+let pIsDragging = false
+let pHasDragged = false
+let pStartX = 0
+let pScrollLeft = 0
+
+const onPassionPointerDown = (e: PointerEvent) => {
+  const el = passionRef.value
+  if (!el) return
+  pIsDragging = true
+  pHasDragged = false
+  el.style.cursor = 'grabbing'
+  pStartX = e.pageX - el.offsetLeft
+  pScrollLeft = el.scrollLeft
+  el.setPointerCapture(e.pointerId)
+}
+
+const onPassionPointerMove = (e: PointerEvent) => {
+  if (!pIsDragging) return
+  const el = passionRef.value
+  if (!el) return
+  e.preventDefault()
+  const x = e.pageX - el.offsetLeft
+  if (Math.abs(x - pStartX) > 5) pHasDragged = true
+  el.scrollLeft = pScrollLeft - (x - pStartX)
+}
+
+const onPassionPointerUp = () => {
+  pIsDragging = false
+  const el = passionRef.value
+  if (el) el.style.cursor = 'grab'
+}
+
+const openPassionLink = (url: string) => {
+  if (!pHasDragged) window.open(url, '_blank')
+}
+
+const onPassionScroll = () => {
+  const el = passionRef.value
+  if (!el) return
+  const setWidth = el.scrollWidth / 3
+  if (el.scrollLeft >= setWidth * 2) {
+    el.scrollLeft -= setWidth
+  } else if (el.scrollLeft <= 0) {
+    el.scrollLeft += setWidth
+  }
+}
+
 onMounted(() => {
   const el = scrollRef.value
   if (el) {
@@ -323,27 +387,51 @@ onMounted(() => {
     el.scrollLeft = el.scrollWidth / 3
     el.addEventListener('scroll', onScroll)
   }
+
+  const pEl = passionRef.value
+  if (pEl) {
+    pEl.scrollLeft = pEl.scrollWidth / 3
+    pEl.addEventListener('scroll', onPassionScroll)
+  }
   // Start typewriter loop
   runTypewriter()
+
+  // Scroll-reveal: observe all .reveal elements
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Stagger entrance by 100ms per element
+          setTimeout(() => {
+            entry.target.classList.add('visible')
+          }, i * 100)
+          revealObserver?.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.12 }
+  )
+  document.querySelectorAll('.reveal').forEach((el) => revealObserver?.observe(el))
 })
 
 onUnmounted(() => {
   const el = scrollRef.value
   if (el) el.removeEventListener('scroll', onScroll)
+  const pEl = passionRef.value
+  if (pEl) pEl.removeEventListener('scroll', onPassionScroll)
   if (heroTimer) clearTimeout(heroTimer)
+  revealObserver?.disconnect()
 })
 </script>
 
 <style scoped>
 .cv-page {
-  --bg: #f8f8f8;
-  --ink: #0f0f0f;
   background: var(--bg);
   color: var(--ink);
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
   line-height: 1.6;
   position: relative;
 }
@@ -356,8 +444,8 @@ onUnmounted(() => {
   opacity: 0;
   transition: opacity 0.3s ease;
   background-image:
-    linear-gradient(rgba(0,0,0,0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.12) 1px, transparent 1px);
+    linear-gradient(oklch(15% 0.008 45 / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(15% 0.008 45 / 0.1) 1px, transparent 1px);
   background-size: 28px 28px;
   -webkit-mask-image: radial-gradient(circle 180px at var(--mx, 0) var(--my, 0), black 0%, transparent 100%);
   mask-image: radial-gradient(circle 180px at var(--mx, 0) var(--my, 0), black 0%, transparent 100%);
@@ -388,8 +476,8 @@ onUnmounted(() => {
   position: absolute;
   width: 28px;
   height: 28px;
-  background: rgba(220, 40, 40, 0.07);
-  border: 1px solid rgba(220, 40, 40, 0.18);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
 }
 
 .arrow {
@@ -418,15 +506,15 @@ onUnmounted(() => {
 }
 
 .header-link {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 11px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--ink);
   text-decoration: none;
   opacity: 0.5;
-  transition: opacity 0.2s;
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .header-link:hover {
@@ -435,14 +523,14 @@ onUnmounted(() => {
 
 .header-sep {
   opacity: 0.2;
-  font-size: 11px;
+  font-size: var(--text-xs);
 }
 
 /* Body */
 .cv-body {
   max-width: 900px;
   margin: 0 auto;
-  padding: 60px 32px 120px;
+  padding: var(--space-xl) 32px var(--space-2xl);
 }
 
 /* Hero */
@@ -471,14 +559,14 @@ onUnmounted(() => {
   bottom: -18px;
   left: calc(50% + 20px);
   transform: translateX(-50%);
-  background: #fff;
-  border: 1px solid #d0d0d0;
+  background: var(--bg);
+  border: 1px solid var(--border-s);
   border-radius: 20px;
   padding: 5px 14px;
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-style: italic;
-  color: #666;
+  color: var(--ink-muted);
   white-space: nowrap;
   z-index: 1;
 }
@@ -488,7 +576,7 @@ onUnmounted(() => {
   animation: blink-cursor 0.6s step-end infinite;
   font-style: normal;
   margin-left: 1px;
-  color: #999;
+  color: var(--ink-faint);
 }
 
 @keyframes blink-cursor {
@@ -499,11 +587,11 @@ onUnmounted(() => {
 .titleline {
   grid-column: 1;
   grid-row: 1;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1;
   color: transparent;
-  background: linear-gradient(90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.75) 100%);
+  background: linear-gradient(90deg, oklch(15% 0.008 45 / 0.45) 0%, oklch(15% 0.008 45 / 0.75) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   font-weight: 700;
@@ -513,24 +601,22 @@ onUnmounted(() => {
 }
 
 .role {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 13px;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--ink);
-  opacity: 0.4;
+  color: var(--ink-faint);
   margin: 0 0 20px;
 }
 
 .intro {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
   line-height: 1.7;
-  color: var(--ink);
-  opacity: 0.7;
+  color: var(--ink-muted);
   margin: 0;
-  max-width: 400px;
+  max-width: 440px;
 }
 
 .hero-sub {
@@ -545,7 +631,7 @@ onUnmounted(() => {
   object-position: center 20%;
   border-radius: 6px;
   filter: grayscale(0.1) blur(0px);
-  transition: filter 1.2s ease;
+  transition: filter 1.2s var(--ease-out);
 }
 
 .hero-pic.blurred {
@@ -564,9 +650,9 @@ onUnmounted(() => {
   align-items: baseline;
   padding-bottom: 10px;
   margin-bottom: 20px;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 300;
-  font-size: 10px;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--ink);
@@ -578,13 +664,12 @@ onUnmounted(() => {
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 1px solid #000;
-  opacity: 0.15;
+  border-top: 1px solid var(--border);
 }
 
 .sec-hdr .idx {
-  font-size: 10px;
-  opacity: 0.4;
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
 }
 
 /* Cases Carousel */
@@ -620,14 +705,15 @@ onUnmounted(() => {
   cursor: pointer;
   border-radius: 12px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: transform var(--duration-mid) var(--ease-out),
+              box-shadow var(--duration-mid) var(--ease-out);
 }
 
 .case-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px oklch(15% 0.008 45 / 0.08);
 }
 
 .case-card-img {
@@ -640,7 +726,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform var(--duration-slow) var(--ease-out);
 }
 
 .case-card:hover .case-card-img img {
@@ -648,44 +734,43 @@ onUnmounted(() => {
 }
 
 .case-card-info {
-  padding: 14px 16px 16px;
+  padding: 14px var(--space-md) var(--space-md);
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
 
 .case-card-title {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 14px;
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
   font-weight: 500;
   line-height: 1.3;
 }
 
 .case-card-client {
-  font-size: 11px;
-  opacity: 0.4;
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
   letter-spacing: 0.3px;
 }
 
 .cases-directory {
   display: inline-block;
   margin-top: 20px;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 11px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-decoration: none;
-  color: var(--ink);
-  opacity: 0.4;
-  transition: opacity 0.2s;
+  color: var(--ink-faint);
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .cases-directory:hover {
-  opacity: 0.8;
+  color: var(--ink);
 }
 
 .cases-directory:hover .arrow {
-  animation: arrow-nudge 0.8s ease-in-out infinite;
+  animation: arrow-nudge 0.8s var(--ease-out) infinite;
 }
 
 /* Sandbox Preview */
@@ -694,7 +779,7 @@ onUnmounted(() => {
   text-decoration: none;
   color: inherit;
   border-radius: 6px;
-  transition: transform 0.25s ease;
+  transition: transform var(--duration-mid) var(--ease-out);
 }
 
 .sandbox-card:hover {
@@ -707,8 +792,8 @@ onUnmounted(() => {
   height: 340px;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background: #0f0f0f;
+  border: 1px solid var(--border-s);
+  background: var(--ink);
 }
 
 .sandbox-img {
@@ -718,7 +803,7 @@ onUnmounted(() => {
   object-position: center top;
   pointer-events: none;
   filter: brightness(0.85);
-  transition: transform 0.5s ease;
+  transition: transform var(--duration-slow) var(--ease-out);
   margin-top: -30px;
 }
 
@@ -729,7 +814,7 @@ onUnmounted(() => {
 .sandbox-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 70%, rgba(15,15,15,0.20) 100%);
+  background: linear-gradient(180deg, transparent 70%, oklch(15% 0.008 45 / 0.2) 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -738,13 +823,13 @@ onUnmounted(() => {
 }
 
 .sandbox-cta {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 11px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   opacity: 0.7;
-  color: #fff;
-  transition: opacity 0.2s;
+  color: oklch(97.5% 0.008 45);
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .sandbox-card:hover .sandbox-cta {
@@ -752,22 +837,48 @@ onUnmounted(() => {
 }
 
 .sandbox-card:hover .arrow {
-  animation: arrow-nudge 0.8s ease-in-out infinite;
+  animation: arrow-nudge 0.8s var(--ease-out) infinite;
 }
 
 .sandbox-desc {
-  font-size: 13px;
+  font-size: var(--text-sm);
   line-height: 1.7;
-  opacity: 0.55;
+  color: var(--ink-muted);
   margin: 14px 0 0;
 }
 
-/* Passion Project Card */
+/* Passion Project Carousel */
+.passion-scroll-wrap {
+  margin: 0 -32px 0 0;
+  margin-right: calc(-50vw + 50%);
+  padding-right: 60px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(90deg, black 0%, black 85%, transparent 100%);
+  mask-image: linear-gradient(90deg, black 0%, black 85%, transparent 100%);
+}
+
+.passion-scroll-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.passion-scroll {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 4px;
+}
+
 .passion-card {
+  flex-shrink: 0;
+  width: 480px;
   display: block;
   text-decoration: none;
   color: var(--ink);
-  transition: transform 0.2s;
+  transition: transform var(--duration-fast) var(--ease-out);
 }
 
 .passion-card:hover {
@@ -780,8 +891,8 @@ onUnmounted(() => {
   height: 340px;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background: #0f0f0f;
+  border: 1px solid var(--border-s);
+  background: var(--ink);
 }
 
 .passion-iframe {
@@ -792,7 +903,7 @@ onUnmounted(() => {
   transform-origin: top left;
   pointer-events: none;
   filter: brightness(0.85);
-  transition: transform 0.5s ease;
+  transition: transform var(--duration-slow) var(--ease-out);
 }
 
 .passion-card:hover .passion-iframe {
@@ -802,7 +913,7 @@ onUnmounted(() => {
 .passion-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 70%, rgba(15,15,15,0.20) 100%);
+  background: linear-gradient(180deg, transparent 70%, oklch(15% 0.008 45 / 0.2) 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -811,20 +922,20 @@ onUnmounted(() => {
 }
 
 .passion-desc {
-  font-size: 13px;
+  font-size: var(--text-sm);
   line-height: 1.7;
-  opacity: 0.55;
+  color: var(--ink-muted);
   margin: 14px 0 0;
 }
 
 .passion-cta {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 11px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   opacity: 0.7;
-  color: #fff;
-  transition: opacity 0.2s;
+  color: oklch(97.5% 0.008 45);
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .passion-card:hover .passion-cta {
@@ -832,7 +943,7 @@ onUnmounted(() => {
 }
 
 .passion-card:hover .arrow {
-  animation: arrow-nudge 0.8s ease-in-out infinite;
+  animation: arrow-nudge 0.8s var(--ease-out) infinite;
 }
 
 /* About Card */
@@ -840,7 +951,7 @@ onUnmounted(() => {
   display: block;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.25s ease;
+  transition: transform var(--duration-mid) var(--ease-out);
 }
 
 .about-card:hover {
@@ -854,28 +965,28 @@ onUnmounted(() => {
 }
 
 .about-text {
-  font-size: 15px;
+  font-size: var(--text-base);
   line-height: 1.8;
-  opacity: 0.65;
+  color: var(--ink-muted);
   margin: 0;
   max-width: 640px;
 }
 
 .view-about {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 11px;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  opacity: 0.4;
-  transition: opacity 0.2s;
+  color: var(--ink-faint);
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .about-card:hover .view-about {
-  opacity: 0.8;
+  color: var(--ink);
 }
 
 .about-card:hover .arrow {
-  animation: arrow-nudge 0.8s ease-in-out infinite;
+  animation: arrow-nudge 0.8s var(--ease-out) infinite;
 }
 
 /* Responsive */
@@ -966,6 +1077,15 @@ onUnmounted(() => {
     font-size: 10px;
   }
 
+  .passion-scroll-wrap {
+    margin-right: -18px;
+    padding-right: 40px;
+  }
+
+  .passion-card {
+    width: 320px;
+  }
+
   .sandbox-preview,
   .passion-preview {
     height: 220px;
@@ -997,6 +1117,10 @@ onUnmounted(() => {
 
   .case-card-img {
     height: 200px;
+  }
+
+  .passion-card {
+    width: 260px;
   }
 }
 </style>

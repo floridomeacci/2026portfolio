@@ -190,13 +190,11 @@ const onMouseMove = (e: MouseEvent) => {
 
 <style scoped>
 .cv-page {
-  --bg: #f8f8f8;
-  --ink: #0f0f0f;
   width: 100%;
   min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   font-feature-settings: 'liga' 1, 'kern' 1;
 }
@@ -209,39 +207,41 @@ const onMouseMove = (e: MouseEvent) => {
   align-items: center;
   gap: 14px;
   padding: 18px 32px;
-  background: var(--bg);
-  border-bottom: 1px solid rgba(0,0,0,.08);
+  background: oklch(97.5% 0.008 45 / 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
 .back-link {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-sm);
   color: var(--ink);
   opacity: .5;
-  transition: opacity .2s;
+  transition: opacity var(--duration-fast) var(--ease-out);
   text-decoration: none;
 }
 .back-link:hover { opacity: 1; }
 
 .header-label {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 300;
-  font-size: 14px;
+  font-size: var(--text-sm);
   letter-spacing: .3px;
 }
 
 .cv-body {
   max-width: 800px;
   margin: 0 auto;
-  padding: 48px 32px 100px;
+  padding: var(--space-xl) 32px 100px;
 }
 
 .name-row {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-bottom: 48px;
+  margin-bottom: var(--space-xl);
 }
 
 .profile-pic {
@@ -251,7 +251,7 @@ const onMouseMove = (e: MouseEvent) => {
   object-fit: cover;
   object-position: center 20%;
   flex-shrink: 0;
-  border: 2px solid rgba(0,0,0,.08);
+  border: 2px solid var(--border);
 }
 
 .face-tracker-wrap {
@@ -260,7 +260,7 @@ const onMouseMove = (e: MouseEvent) => {
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid rgba(0,0,0,.08);
+  border: 2px solid var(--border);
 }
 
 .face-pic {
@@ -280,17 +280,17 @@ const onMouseMove = (e: MouseEvent) => {
 }
 
 .titleline {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 300;
-  font-size: 32px;
+  font-size: clamp(1.375rem, 1.2rem + 0.8vw, 2rem);
   line-height: 1.2;
-  color: #000;
+  color: var(--ink);
   margin: 0;
 }
 
 .two-cols {
   display: flex;
-  gap: 48px;
+  gap: var(--space-xl);
   align-items: flex-start;
 }
 
@@ -316,9 +316,9 @@ const onMouseMove = (e: MouseEvent) => {
   align-items: baseline;
   padding-bottom: 10px;
   margin-bottom: 18px;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: var(--font-ui);
   font-weight: 300;
-  font-size: 10px;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--ink);
@@ -329,20 +329,19 @@ const onMouseMove = (e: MouseEvent) => {
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 1px solid #000;
-  opacity: .15;
+  border-top: 1px solid var(--border);
 }
 .sec-hdr .idx {
-  font-size: 10px;
-  opacity: .4;
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
 }
 
 .body-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 400;
   line-height: 170%;
-  color: #222;
+  color: var(--ink-muted);
   margin: 0 0 10px;
 }
 .body-text:last-child { margin-bottom: 0; }
@@ -350,21 +349,21 @@ const onMouseMove = (e: MouseEvent) => {
 .entry {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--space-xs);
   margin-bottom: 20px;
 }
 .entry:last-child { margin-bottom: 0; }
 
 .entry .date {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
-  color: #888;
+  color: var(--ink-faint);
 }
 
 .entry .company {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 600;
   line-height: 1.4;
   color: var(--ink);
@@ -377,16 +376,16 @@ const onMouseMove = (e: MouseEvent) => {
 .contact-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .contact-list a {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
   color: var(--ink);
   text-decoration: none;
-  transition: opacity .2s;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 .contact-list a:hover {
   text-decoration: underline;
@@ -400,15 +399,15 @@ const onMouseMove = (e: MouseEvent) => {
 
 .sk-row {
   display: flex;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 .sk-row .l,
 .sk-row .r {
   width: 50%;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
-  color: #333;
+  color: var(--ink-muted);
 }
 
 .lang-grid {
@@ -419,46 +418,46 @@ const onMouseMove = (e: MouseEvent) => {
 
 .lg-row {
   display: flex;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 .lg-row .n {
   width: 60%;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: #333;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
 }
 .lg-row .lv {
   width: 40%;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: #777;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
 }
 
 .edu {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-md);
 }
 .edu:last-child { margin-bottom: 0; }
 
 .edu .date {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
-  color: #888;
+  color: var(--ink-faint);
 }
 .edu .school {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--ink);
 }
 .edu .field {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
-  color: #555;
+  color: var(--ink-muted);
   line-height: 1.5;
 }
 
@@ -471,25 +470,25 @@ const onMouseMove = (e: MouseEvent) => {
 .award:last-child { margin-bottom: 0; }
 
 .a-title {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 500;
   color: var(--ink);
 }
 .a-meta {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
-  color: #777;
+  color: var(--ink-faint);
 }
 
 @media (max-width: 640px) {
   .cv-header { padding: 14px 18px; }
-  .cv-body { padding: 24px 18px 60px; }
+  .cv-body { padding: var(--space-lg) 18px 60px; }
 
   .name-row {
     flex-direction: column;
-    gap: 16px;
+    gap: var(--space-md);
     margin-bottom: 36px;
   }
 
@@ -523,15 +522,15 @@ const onMouseMove = (e: MouseEvent) => {
 
   .col-side { min-width: 0; }
 
-  .body-text { font-size: 11px; }
-  .entry .company { font-size: 12px; }
+  .body-text { font-size: var(--text-xs); }
+  .entry .company { font-size: var(--text-sm); }
 
   .sk-row .l,
-  .sk-row .r { font-size: 10px; }
+  .sk-row .r { font-size: var(--text-xs); }
 
   .lg-row .n,
-  .lg-row .lv { font-size: 10px; }
+  .lg-row .lv { font-size: var(--text-xs); }
 
-  .edu .school { font-size: 11px; }
+  .edu .school { font-size: var(--text-xs); }
 }
 </style>

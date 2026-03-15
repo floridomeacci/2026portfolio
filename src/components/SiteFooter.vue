@@ -26,6 +26,7 @@
         <div class="footer-links">
           <a href="https://reddituser.info" target="_blank" rel="noopener">REDDITUSER.INFO</a>
           <a href="https://www.latentsearch.net/" target="_blank" rel="noopener">LATENTSEARCH.NET</a>
+          <a href="https://creditswap.app" target="_blank" rel="noopener">CREDITSWAP.APP</a>
         </div>
       </div>
 
@@ -42,10 +43,10 @@
 
 <style scoped>
 .site-footer {
-  background: #f8f8f8;
-  padding: 80px 48px 64px;
-  font-family: 'Inter', sans-serif;
-  border-top: 1px solid rgba(15, 15, 15, 0.1);
+  background: var(--bg-sub);
+  padding: 80px var(--space-xl) 64px;
+  font-family: var(--font-body);
+  border-top: 1px solid var(--border);
 }
 
 .footer-inner {
@@ -63,9 +64,9 @@
 }
 
 .footer-label {
-  color: rgba(15, 15, 15, 0.4);
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  color: var(--ink-faint);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -80,40 +81,42 @@
 }
 
 .footer-links a {
-  color: #0f0f0f;
+  color: var(--ink);
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 400;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  transition: opacity 0.2s;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .footer-links a:hover {
-  opacity: 0.45;
+  color: var(--ink-muted);
 }
 
 .footer-row--email {
-  padding-top: 24px;
+  padding-top: var(--space-lg);
   justify-content: flex-start;
   padding-left: calc(100px + 64px);
 }
 
 .footer-email {
-  color: #0f0f0f;
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
   font-weight: 400;
   letter-spacing: 0.03em;
   text-decoration: none;
-  border-bottom: 1px solid #0f0f0f;
+  border-bottom: 1px solid var(--ink);
   padding-bottom: 2px;
-  transition: opacity 0.2s;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
 }
 
 .footer-email:hover {
-  opacity: 0.45;
+  color: var(--ink-muted);
+  border-color: var(--ink-muted);
 }
 
 @media (max-width: 640px) {
@@ -121,7 +124,7 @@
     padding: 40px 18px 32px;
   }
   .footer-inner {
-    gap: 24px;
+    gap: var(--space-lg);
   }
   .footer-row {
     flex-direction: column;
