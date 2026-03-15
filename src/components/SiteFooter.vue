@@ -43,7 +43,7 @@
 
 <style scoped>
 .site-footer {
-  background: var(--bg-sub);
+  background: var(--bg);
   padding: 80px var(--space-xl) 64px;
   font-family: var(--font-body);
   border-top: 1px solid var(--border);

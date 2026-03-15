@@ -207,7 +207,7 @@ const onMouseMove = (e: MouseEvent) => {
   align-items: center;
   gap: 14px;
   padding: 18px 32px;
-  background: oklch(97.5% 0.008 45 / 0.92);
+  background: var(--bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
