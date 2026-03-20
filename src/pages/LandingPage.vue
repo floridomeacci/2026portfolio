@@ -267,10 +267,10 @@ const topCases = [
 const loopCases = computed(() => [...topCases, ...topCases, ...topCases])
 
 const passionProjects = [
-  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.' },
+  { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A curated board for AI, creative tech, and design jobs in Amsterdam — built to help multidisciplinary talent discover relevant roles faster.' },
   { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.' },
   { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'Lower AI API spend without changing the models your team already trusts — a private-beta marketplace with vetted buyers and anonymous sellers, where buyers save 20% and sellers earn from spare capacity.' },
-  { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A curated board for AI, creative tech, and design jobs in Amsterdam — built to help multidisciplinary talent discover relevant roles faster.' },
+  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.' },
 ]
 
 const loopPassion = computed(() => [...passionProjects, ...passionProjects, ...passionProjects])
@@ -641,7 +641,7 @@ onUnmounted(() => {
 
 /* Section headers (CV style) */
 .section {
-  margin-bottom: 56px;
+  margin-bottom: 106px;
 }
 
 .sec-hdr {
@@ -1052,7 +1052,7 @@ onUnmounted(() => {
   }
 
   .section {
-    margin-bottom: 40px;
+    margin-bottom: 90px;
   }
 
   .cases-scroll-wrap {
