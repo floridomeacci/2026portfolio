@@ -270,6 +270,7 @@ const passionProjects = [
   { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.' },
   { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.' },
   { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'Lower AI API spend without changing the models your team already trusts — a private-beta marketplace with vetted buyers and anonymous sellers, where buyers save 20% and sellers earn from spare capacity.' },
+  { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A curated board for AI, creative tech, and design jobs in Amsterdam — built to help multidisciplinary talent discover relevant roles faster.' },
 ]
 
 const loopPassion = computed(() => [...passionProjects, ...passionProjects, ...passionProjects])
@@ -674,7 +675,8 @@ onUnmounted(() => {
 
 /* Cases Carousel */
 .cases-scroll-wrap {
-  margin: 0 -32px 0 0;
+  margin: 0;
+  margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   padding-right: 60px;
   overflow-x: auto;
@@ -849,7 +851,8 @@ onUnmounted(() => {
 
 /* Passion Project Carousel */
 .passion-scroll-wrap {
-  margin: 0 -32px 0 0;
+  margin: 0;
+  margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   padding-right: 60px;
   overflow-x: auto;
@@ -1053,6 +1056,7 @@ onUnmounted(() => {
   }
 
   .cases-scroll-wrap {
+    margin-left: -18px;
     margin-right: -18px;
     padding-right: 40px;
   }
@@ -1078,6 +1082,7 @@ onUnmounted(() => {
   }
 
   .passion-scroll-wrap {
+    margin-left: -18px;
     margin-right: -18px;
     padding-right: 40px;
   }

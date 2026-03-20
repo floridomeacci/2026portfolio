@@ -27,6 +27,7 @@
           <a href="https://reddituser.info" target="_blank" rel="noopener">REDDITUSER.INFO</a>
           <a href="https://www.latentsearch.net/" target="_blank" rel="noopener">LATENTSEARCH.NET</a>
           <a href="https://creditswap.app" target="_blank" rel="noopener">CREDITSWAP.APP</a>
+          <a href="https://jobs.floridomeacci.xyz" target="_blank" rel="noopener">JOBS.FLORIDOMEACCI.XYZ</a>
         </div>
       </div>
 
