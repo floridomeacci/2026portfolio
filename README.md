@@ -3,6 +3,11 @@
 Personal portfolio website built with Vue 3, Vite, and Tailwind CSS. Features an interactive canvas-style layout.
 
 
+
+## Preview
+
+[![Preview](assets/preview.png)](https://floridomeacci.xyz)
+
 ---
 
 ## Tech Stack
