@@ -1,5 +1,10 @@
 # 2026portfolio
 
+<h3>
+  <a href="https://floridomeacci.xyz">🌐 Live at floridomeacci.xyz</a>
+</h3>
+
+
 Personal portfolio website built with Vue 3, Vite, and Tailwind CSS. Features an interactive canvas-style layout.
 
 
