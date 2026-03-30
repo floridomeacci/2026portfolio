@@ -118,7 +118,7 @@
               target="_blank"
               rel="noopener"
               class="passion-card"
-              @click.prevent="openPassionLink(p.url)"
+              @click="onPassionCardClick"
             >
               <div class="passion-preview">
                 <iframe
@@ -336,6 +336,8 @@ const onScroll = () => {
 const passionRef = ref<HTMLElement | null>(null)
 let pIsDragging = false
 let pHasDragged = false
+let pSuppressNextClick = false
+let pSuppressTimer: number | null = null
 let pStartX = 0
 let pScrollLeft = 0
 
@@ -364,10 +366,25 @@ const onPassionPointerUp = () => {
   pIsDragging = false
   const el = passionRef.value
   if (el) el.style.cursor = 'grab'
+  if (pHasDragged) {
+    pSuppressNextClick = true
+    if (pSuppressTimer !== null) window.clearTimeout(pSuppressTimer)
+    pSuppressTimer = window.setTimeout(() => {
+      pSuppressNextClick = false
+      pSuppressTimer = null
+    }, 150)
+  }
 }
 
-const openPassionLink = (url: string) => {
-  if (!pHasDragged) window.open(url, '_blank')
+const onPassionCardClick = (event: MouseEvent) => {
+  if (!pSuppressNextClick) return
+  event.preventDefault()
+  event.stopPropagation()
+  pSuppressNextClick = false
+  if (pSuppressTimer !== null) {
+    window.clearTimeout(pSuppressTimer)
+    pSuppressTimer = null
+  }
 }
 
 const onPassionScroll = () => {
@@ -420,6 +437,7 @@ onUnmounted(() => {
   if (el) el.removeEventListener('scroll', onScroll)
   const pEl = passionRef.value
   if (pEl) pEl.removeEventListener('scroll', onPassionScroll)
+  if (pSuppressTimer !== null) window.clearTimeout(pSuppressTimer)
   if (heroTimer) clearTimeout(heroTimer)
   revealObserver?.disconnect()
 })
@@ -642,6 +660,10 @@ onUnmounted(() => {
 /* Section headers (CV style) */
 .section {
   margin-bottom: 106px;
+}
+
+.section + .section {
+  padding-top: 50px;
 }
 
 .sec-hdr {
@@ -1053,6 +1075,10 @@ onUnmounted(() => {
 
   .section {
     margin-bottom: 90px;
+  }
+
+  .section + .section {
+    padding-top: 50px;
   }
 
   .cases-scroll-wrap {
