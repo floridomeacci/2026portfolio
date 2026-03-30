@@ -57,6 +57,7 @@
           @pointerdown="onPointerDown"
           @pointermove="onPointerMove"
           @pointerup="onPointerUp"
+          @pointercancel="onPointerUp"
           @pointerleave="onPointerUp"
         >
           <div class="cases-scroll">
@@ -108,6 +109,7 @@
           @pointerdown="onPassionPointerDown"
           @pointermove="onPassionPointerMove"
           @pointerup="onPassionPointerUp"
+          @pointercancel="onPassionPointerUp"
           @pointerleave="onPassionPointerUp"
         >
           <div class="passion-scroll">
@@ -118,7 +120,6 @@
               target="_blank"
               rel="noopener"
               class="passion-card"
-              @click="onPassionCardClick"
             >
               <div class="passion-preview">
                 <iframe
@@ -292,7 +293,6 @@ const onPointerDown = (e: PointerEvent) => {
   el.style.cursor = 'grabbing'
   startX = e.pageX - el.offsetLeft
   scrollLeft = el.scrollLeft
-  el.setPointerCapture(e.pointerId)
 }
 
 const onPointerMove = (e: PointerEvent) => {
@@ -336,8 +336,6 @@ const onScroll = () => {
 const passionRef = ref<HTMLElement | null>(null)
 let pIsDragging = false
 let pHasDragged = false
-let pSuppressNextClick = false
-let pSuppressTimer: number | null = null
 let pStartX = 0
 let pScrollLeft = 0
 
@@ -349,7 +347,6 @@ const onPassionPointerDown = (e: PointerEvent) => {
   el.style.cursor = 'grabbing'
   pStartX = e.pageX - el.offsetLeft
   pScrollLeft = el.scrollLeft
-  el.setPointerCapture(e.pointerId)
 }
 
 const onPassionPointerMove = (e: PointerEvent) => {
@@ -366,25 +363,6 @@ const onPassionPointerUp = () => {
   pIsDragging = false
   const el = passionRef.value
   if (el) el.style.cursor = 'grab'
-  if (pHasDragged) {
-    pSuppressNextClick = true
-    if (pSuppressTimer !== null) window.clearTimeout(pSuppressTimer)
-    pSuppressTimer = window.setTimeout(() => {
-      pSuppressNextClick = false
-      pSuppressTimer = null
-    }, 150)
-  }
-}
-
-const onPassionCardClick = (event: MouseEvent) => {
-  if (!pSuppressNextClick) return
-  event.preventDefault()
-  event.stopPropagation()
-  pSuppressNextClick = false
-  if (pSuppressTimer !== null) {
-    window.clearTimeout(pSuppressTimer)
-    pSuppressTimer = null
-  }
 }
 
 const onPassionScroll = () => {
@@ -437,7 +415,6 @@ onUnmounted(() => {
   if (el) el.removeEventListener('scroll', onScroll)
   const pEl = passionRef.value
   if (pEl) pEl.removeEventListener('scroll', onPassionScroll)
-  if (pSuppressTimer !== null) window.clearTimeout(pSuppressTimer)
   if (heroTimer) clearTimeout(heroTimer)
   revealObserver?.disconnect()
 })
