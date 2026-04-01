@@ -33,6 +33,7 @@
 
           <div v-if="expandedCase === i" class="entry-expand" @click.stop>
             <p class="entry-desc">{{ c.description }}</p>
+            <a v-if="c.projectUrl" :href="c.projectUrl" target="_blank" rel="noopener" class="entry-link">Open interactive map <span class="arrow">&rarr;</span></a>
 
             <div v-if="c.youtube" class="entry-media">
               <iframe
@@ -95,7 +96,7 @@ const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').repla
 
 interface CaseItem {
   title: string; client: string; description: string
-  tags: string[]; video?: string; videos?: string[]; youtube?: string; images?: string[]; darkBg?: boolean
+  tags: string[]; video?: string; videos?: string[]; youtube?: string; images?: string[]; darkBg?: boolean; projectUrl?: string
 }
 
 const mediaCount = (c: CaseItem) => {
@@ -122,7 +123,21 @@ const cases = ref<CaseItem[]>([
     description: "A global campaign turning real user stories into AI-generated songs and album covers, powered by Adobe Firefly. Owned the real-time album-cover generation flow — live AI visuals at global scale.",
     tags: ['AI', 'Real-time', 'Global Campaign'],
     youtube: 'https://www.youtube.com/embed/1y2SWAntro8',
-    images: [img('lg.webp')]
+    images: [img('lg.webp'), '/images/lgradio1.webp', '/images/lgradio2.webp']
+  },
+  {
+    title: "McDonald's Olifantenpaadjes",
+    client: "McDonald's — TBWA\\NEBOKO",
+    description: "We cross-referenced open-source olifantenpaadjes with McDonald's locations in the Netherlands and built an interactive map showing how many unofficial shortcuts point in the direction of fries. I built the interactive geo-matching map and visualization experience.",
+    tags: ['Interactive Map', 'Geo Data', 'Creative Tech'],
+    projectUrl: 'https://mcd-pad.vercel.app/',
+    images: [
+      '/images/olifantenpaadjes1.jpeg',
+      '/images/olifantenpaadjes2.jpeg',
+      '/images/olifantenpaadjes3.jpeg',
+      '/images/olifantenpaadjes4.jpeg',
+      '/images/olifantenpaadjes5.jpeg'
+    ]
   },
   {
     title: "McDonald's Family Mode",
@@ -427,6 +442,22 @@ onMounted(() => {
   color: var(--ink-muted);
   margin: 0 0 20px;
   max-width: 560px;
+}
+
+.entry-link {
+  display: inline-block;
+  margin: 0 0 20px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.entry-link:hover {
+  opacity: 0.7;
 }
 
 .entry-media {

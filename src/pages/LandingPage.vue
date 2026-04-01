@@ -256,6 +256,7 @@ const onMouseMove = (e: MouseEvent) => {
 const topCases = [
   { title: "McDonald's Fan Favorites", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/fan_favorites_hero.png', slug: 'fan-favorites' },
   { title: 'LG Radio Optimism', client: 'LG Electronics — Global', img: '/cases/images/lg_hero.png', slug: 'lg-radio-optimism' },
+  { title: "McDonald's Olifantenpaadjes", client: "McDonald's — TBWA\\NEBOKO", img: '/images/olifantenpaadjes1.jpeg', slug: 'mcdonald-s-olifantenpaadjes' },
   { title: 'TBWA\\X Custom Arcade', client: 'TBWA\\X', img: '/cases/images/arcade_hero.png', slug: 'arcade' },
   { title: "McDonald's Delivery Detector", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/mcdeliverydetector.avif', slug: 'delivery-detector' },
   { title: 'SS26 New Amsterdam Surf', client: 'New Amsterdam Surf Association', img: '/cases/images/nasa_thumb.webp', slug: 'ss26-new-amsterdam' },
