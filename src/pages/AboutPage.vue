@@ -28,40 +28,12 @@
               <span class="date">2024.07 &#x2013; Present</span>
               <span class="company">TBWA\NEBOKO &#x2014; Creative Technologist</span>
               <span class="body-text">Built AI automation frameworks that helped global campaigns scale faster. Created 3D and interactive web experiences from concept through launch.</span>
-              <div class="entry-projects">
-                <div class="ep">
-                  <span class="ep-client">McDonald's</span>
-                  <span class="ep-title">Fan Favorites</span>
-                  <span class="ep-desc">Helped fans across Spain, Portugal, and the Netherlands create their own personalised McDonald's menu and bring it to life with AI. The campaign generated over 4 million unique visual combinations, pre-generated through a scalable pipeline.</span>
-                  <span class="ep-role">Role: Led the full AI asset-generation pipeline and pre-produced 4M+ unique outputs at scale.</span>
-                </div>
-                <div class="ep">
-                  <span class="ep-client">LG Electronics, Global</span>
-                  <span class="ep-title">Radio Optimism</span>
-                  <span class="ep-desc">A global campaign turning real user stories into AI-generated songs and album covers, powered by Adobe Firefly. Albums and tracks were generated in real time, giving every listener a one-of-a-kind visual and audio experience.</span>
-                  <span class="ep-role">Role: Owned the real-time album-cover generation flow, delivering live AI visuals at global scale.</span>
-                </div>
-              </div>
             </div>
 
             <div class="entry">
               <span class="date">2021.05 &#x2013; 2024.08</span>
               <span class="company">TBWA\NEBOKO &#x2014; Digital Designer</span>
               <span class="body-text">Integrated AI and emerging tech into digital design workflows. Produced high-impact social content and interactive brand experiences, taking projects from concept to final delivery.</span>
-              <div class="entry-projects">
-                <div class="ep">
-                  <span class="ep-client">McDonald's Netherlands</span>
-                  <span class="ep-title">Family Mode</span>
-                  <span class="ep-desc">An interactive McDonald's App feature turning physical placemats into AR board games, with personalised family avatars, read-aloud Happy Meal books, and AI-powered "Magic Stories". Over 1M+ avatars created by users.</span>
-                  <span class="ep-role">Role: Designed all 3D characters, rigging, animations, clothing items, and web-ready worlds — the foundation of every user-created avatar.</span>
-                </div>
-                <div class="ep">
-                  <span class="ep-client">McDonald's Netherlands</span>
-                  <span class="ep-title">McDelivery Detector</span>
-                  <span class="ep-desc">A limited-edition, 3D-printed smoke alarm shaped like a Big Mac that automatically ordered McDonald's when it detected smoke. Highly awarded campaign featured on Adweek, Highsnobiety, and B&T.</span>
-                  <span class="ep-role">Role: Designed the full 3D product as a printable, assemblable device, from concept to production-ready files.</span>
-                </div>
-              </div>
             </div>
 
             <div class="entry">
