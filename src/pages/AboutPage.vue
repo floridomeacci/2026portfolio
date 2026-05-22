@@ -22,24 +22,46 @@
         <div class="col-main">
 
           <section>
-            <div class="sec-hdr"><span>Bio</span><span class="idx">01</span></div>
-            <p class="body-text">Creative Technologist with a passion for blending technology and creativity. I bring ideas to life through code, interactive installations, and digital experiences. From AI-driven campaigns to physical&#x2013;digital products, I thrive at the intersection where imagination meets engineering.</p>
-            <p class="body-text">Born in Italy, educated at the Istituto Europeo di Design in Milan, and now based in Amsterdam working at TBWA\X &#x2014; the creative technology arm of TBWA\NEBOKO.</p>
-          </section>
-
-          <section>
-            <div class="sec-hdr"><span>Experience</span><span class="idx">02</span></div>
+            <div class="sec-hdr"><span>Experience</span><span class="idx">03</span></div>
 
             <div class="entry">
               <span class="date">2024.07 &#x2013; Present</span>
               <span class="company">TBWA\NEBOKO &#x2014; Creative Technologist</span>
-              <span class="body-text">Architected AI automation frameworks enabling global campaign scalability. Built high-end 3D and interactive web experiences pushing creative and technical boundaries.</span>
+              <span class="body-text">Built AI automation frameworks that helped global campaigns scale faster. Created 3D and interactive web experiences from concept through launch.</span>
+              <div class="entry-projects">
+                <div class="ep">
+                  <span class="ep-client">McDonald's</span>
+                  <span class="ep-title">Fan Favorites</span>
+                  <span class="ep-desc">Helped fans across Spain, Portugal, and the Netherlands create their own personalised McDonald's menu and bring it to life with AI. The campaign generated over 4 million unique visual combinations, pre-generated through a scalable pipeline.</span>
+                  <span class="ep-role">Role: Led the full AI asset-generation pipeline and pre-produced 4M+ unique outputs at scale.</span>
+                </div>
+                <div class="ep">
+                  <span class="ep-client">LG Electronics, Global</span>
+                  <span class="ep-title">Radio Optimism</span>
+                  <span class="ep-desc">A global campaign turning real user stories into AI-generated songs and album covers, powered by Adobe Firefly. Albums and tracks were generated in real time, giving every listener a one-of-a-kind visual and audio experience.</span>
+                  <span class="ep-role">Role: Owned the real-time album-cover generation flow, delivering live AI visuals at global scale.</span>
+                </div>
+              </div>
             </div>
 
             <div class="entry">
               <span class="date">2021.05 &#x2013; 2024.08</span>
               <span class="company">TBWA\NEBOKO &#x2014; Digital Designer</span>
-              <span class="body-text">Pioneered AI and emerging-tech integration across digital design workflows. Produced high-impact social content and interactive brand experiences, owning projects from concept through final delivery.</span>
+              <span class="body-text">Integrated AI and emerging tech into digital design workflows. Produced high-impact social content and interactive brand experiences, taking projects from concept to final delivery.</span>
+              <div class="entry-projects">
+                <div class="ep">
+                  <span class="ep-client">McDonald's Netherlands</span>
+                  <span class="ep-title">Family Mode</span>
+                  <span class="ep-desc">An interactive McDonald's App feature turning physical placemats into AR board games, with personalised family avatars, read-aloud Happy Meal books, and AI-powered "Magic Stories". Over 1M+ avatars created by users.</span>
+                  <span class="ep-role">Role: Designed all 3D characters, rigging, animations, clothing items, and web-ready worlds — the foundation of every user-created avatar.</span>
+                </div>
+                <div class="ep">
+                  <span class="ep-client">McDonald's Netherlands</span>
+                  <span class="ep-title">McDelivery Detector</span>
+                  <span class="ep-desc">A limited-edition, 3D-printed smoke alarm shaped like a Big Mac that automatically ordered McDonald's when it detected smoke. Highly awarded campaign featured on Adweek, Highsnobiety, and B&T.</span>
+                  <span class="ep-role">Role: Designed the full 3D product as a printable, assemblable device, from concept to production-ready files.</span>
+                </div>
+              </div>
             </div>
 
             <div class="entry">
@@ -51,23 +73,28 @@
             <div class="entry">
               <span class="date">2016.04 &#x2013; 2020.03</span>
               <span class="company">ACT.agency</span>
-              <span class="body-text">Promoted from Visual Designer to Lead Designer. Managed the full design lifecycle &#x2014; UI/UX, data dashboards, infographics, and comprehensive brand books. Designed large-format print including transit wraps, banners, and posters.</span>
+              <span class="body-text">Promoted from Visual Designer to Lead Designer. Managed the full design lifecycle — UI/UX, data dashboards, infographics, and comprehensive brand books. Designed large-format print including transit wraps, banners, and posters. Defined and maintained style guides across accounts.</span>
             </div>
           </section>
 
           <section>
-            <div class="sec-hdr"><span>Personal</span><span class="idx">03</span></div>
+            <div class="sec-hdr"><span>Personal</span><span class="idx">06</span></div>
 
             <div class="entry">
               <span class="date">2017.07 &#x2013; Present</span>
               <span class="company">Sabatoka</span>
-              <span class="body-text">Co-founded a creative studio specialising in bespoke AI solutions and brand strategy. Drive client acquisition and deliver end-to-end projects for brands including Humdrum and New Amsterdam Surf.</span>
+              <span class="body-text">Co-founded a creative studio specialising in bespoke AI solutions and brand strategy. Lead client acquisition and deliver end-to-end projects for brands including Humdrum and New Amsterdam Surf.</span>
             </div>
 
             <div class="entry">
               <span class="date">2023 &#x2013; Present</span>
               <span class="company">Creative Technology Collective</span>
-              <span class="body-text">Active member of CTC &#x2014; a community of creative technologists exploring the intersection of art, design, and emerging technology.</span>
+              <span class="body-text">Active member of CTC — a community of creative technologists exploring the intersection of art, design, and emerging technology.</span>
+            </div>
+
+            <div class="entry">
+              <span class="company">Press &amp; Speaking</span>
+              <span class="body-text">Featured on EenVandaag and the frontpage of de Volkskrant on the impact of AI. Speaker and workshop host at VIA Nederland on practical low-code AI.</span>
             </div>
           </section>
         </div>
@@ -75,8 +102,9 @@
         <div class="col-side">
 
           <section>
-            <div class="sec-hdr"><span>Contact</span><span class="idx">04</span></div>
+            <div class="sec-hdr"><span>Contact</span><span class="idx">01</span></div>
             <div class="contact-list">
+              <a href="tel:+31628814342">+31 6 288 14342</a>
               <a href="mailto:florido@sbtk.nl">florido@sbtk.nl</a>
               <a href="https://www.linkedin.com/in/florido-jan-meacci" target="_blank" rel="noopener">linkedin.com/in/florido-jan-meacci</a>
               <a href="https://www.floridomeacci.xyz" target="_blank" rel="noopener">floridomeacci.xyz</a>
@@ -85,19 +113,58 @@
           </section>
 
           <section>
-            <div class="sec-hdr"><span>Skills</span><span class="idx">05</span></div>
-            <div class="skills-grid">
-              <div class="sk-row"><span class="l">Python</span><span class="r">AI / ML</span></div>
-              <div class="sk-row"><span class="l">n8n / Docker</span><span class="r">Cloud Infra</span></div>
-              <div class="sk-row"><span class="l">Creative Dir.</span><span class="r">Brand Strategy</span></div>
-              <div class="sk-row"><span class="l">3D / C4D</span><span class="r">UI / UX</span></div>
-              <div class="sk-row"><span class="l">Web Dev</span><span class="r">Automation</span></div>
-              <div class="sk-row"><span class="l">Vue / React</span><span class="r">TypeScript</span></div>
+            <div class="sec-hdr"><span>Awards</span><span class="idx">02</span></div>
+            <div class="award">
+              <span class="a-title">Purgatory Sandwich</span>
+              <span class="a-meta">D&amp;AD Wood Pencil &#x2013; Independent Magazine &#xb7; 2026</span>
+            </div>
+            <div class="award">
+              <span class="a-title">McDonald's Fan Favorites</span>
+              <span class="a-meta">Webby Winner &#xb7; 2026</span>
+            </div>
+            <div class="award">
+              <span class="a-title">McDonald's Magic Stories</span>
+              <span class="a-meta">Webby Winner &#xb7; 2026</span>
+            </div>
+            <div class="award">
+              <span class="a-title">McDonald's Maccie</span>
+              <span class="a-meta">Cannes Lions Silver Lion &#x2013; Media / Mobile &#xb7; 2025</span>
+            </div>
+            <div class="award">
+              <span class="a-title">McDonald's The Hidden Campaign</span>
+              <span class="a-meta">Webby Honoree &#xb7; 2025</span>
+            </div>
+            <div class="award">
+              <span class="a-title">Lipton Ice Tea &#x2013; Insurance</span>
+              <span class="a-meta">Bronze Lamp in Advertising (Strategy &amp; Digital) &#xb7; 2025</span>
+            </div>
+            <div class="award">
+              <span class="a-title">McDonald's Family Mode</span>
+              <span class="a-meta">Webby Winner &#xb7; 2024</span>
+            </div>
+            <div class="award">
+              <span class="a-title">Odido Launch / Rebrand</span>
+              <span class="a-meta">Gold Dutch PR Award &#xb7; 2024</span>
+            </div>
+            <div class="award">
+              <span class="a-title">McDelivery Detector</span>
+              <span class="a-meta">ADCN &#x2014; 2x Nominated &#xb7; 2022</span>
             </div>
           </section>
 
           <section>
-            <div class="sec-hdr"><span>Languages</span><span class="idx">06</span></div>
+            <div class="sec-hdr"><span>Skills</span><span class="idx">04</span></div>
+            <div class="skills-grid">
+              <div class="sk-row"><span class="l">Python</span><span class="r">Machine Learning</span></div>
+              <div class="sk-row"><span class="l">n8n / low-code</span><span class="r">Public Speaking</span></div>
+              <div class="sk-row"><span class="l">Prototyping</span><span class="r">AI consultancy</span></div>
+              <div class="sk-row"><span class="l">3D / C4D</span><span class="r">UI / UX</span></div>
+              <div class="sk-row"><span class="l">Web Dev</span><span class="r">Automation</span></div>
+            </div>
+          </section>
+
+          <section>
+            <div class="sec-hdr"><span>Languages</span><span class="idx">05</span></div>
             <div class="lang-grid">
               <div class="lg-row"><span class="n">English</span><span class="lv">C2</span></div>
               <div class="lg-row"><span class="n">Dutch</span><span class="lv">C2</span></div>
@@ -124,25 +191,6 @@
             </div>
           </section>
 
-          <section>
-            <div class="sec-hdr"><span>Awards</span><span class="idx">08</span></div>
-            <div class="award">
-              <span class="a-title">McDonald's The Hidden Campaign</span>
-              <span class="a-meta">Webby Honoree &#xb7; 2025</span>
-            </div>
-            <div class="award">
-              <span class="a-title">McDonald's Family Mode</span>
-              <span class="a-meta">Webby Winner &#xb7; 2024</span>
-            </div>
-            <div class="award">
-              <span class="a-title">Odido Launch / Rebrand</span>
-              <span class="a-meta">Gold Dutch PR Award &#xb7; 2024</span>
-            </div>
-            <div class="award">
-              <span class="a-title">McDelivery Detector</span>
-              <span class="a-meta">ADCN &#x2014; 2x Nominated &#xb7; 2022</span>
-            </div>
-          </section>
         </div>
       </div>
     </main>
@@ -371,6 +419,53 @@ const onMouseMove = (e: MouseEvent) => {
 
 .entry .body-text {
   margin-top: 2px;
+}
+
+.entry-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+}
+
+.ep {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ep-client {
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--ink-faint);
+}
+
+.ep-title {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ep-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-top: 2px;
+}
+
+.ep-role {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--ink-faint);
+  line-height: 1.5;
+  font-style: italic;
 }
 
 .contact-list {
