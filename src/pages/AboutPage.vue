@@ -104,7 +104,6 @@
           <section>
             <div class="sec-hdr"><span>Contact</span><span class="idx">01</span></div>
             <div class="contact-list">
-              <a href="tel:+31628814342">+31 6 288 14342</a>
               <a href="mailto:florido@sbtk.nl">florido@sbtk.nl</a>
               <a href="https://www.linkedin.com/in/florido-jan-meacci" target="_blank" rel="noopener">linkedin.com/in/florido-jan-meacci</a>
               <a href="https://www.floridomeacci.xyz" target="_blank" rel="noopener">floridomeacci.xyz</a>
