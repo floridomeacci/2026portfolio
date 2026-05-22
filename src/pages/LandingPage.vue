@@ -123,7 +123,7 @@
             >
               <div class="passion-preview">
                 <div v-if="p.noEmbed" class="passion-fallback">
-                  <span class="passion-fallback-label">{{ p.label }}</span>
+                  <img :src="'/images/' + p.thumb" :alt="p.label" class="passion-thumb" />
                 </div>
                 <iframe
                   v-else
@@ -274,7 +274,7 @@ const loopCases = computed(() => [...topCases, ...topCases, ...topCases])
 
 const passionProjects = [
   { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A curated board for AI, creative tech, and design jobs in Amsterdam — built to help multidisciplinary talent discover relevant roles faster.' },
-  { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for applying cinematic color grading, film emulation filters, analog grain textures, and vignette effects directly to your designs — no Photoshop needed.', noEmbed: true },
+  { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for applying cinematic color grading, film emulation filters, analog grain textures, and vignette effects directly to your designs — no Photoshop needed.', noEmbed: true, thumb: 'figma.webp' },
   { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.' },
   { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'Lower AI API spend without changing the models your team already trusts — a private-beta marketplace with vetted buyers and anonymous sellers, where buyers save 20% and sellers earn from spare capacity.' },
   { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.' },
@@ -906,10 +906,21 @@ onUnmounted(() => {
 .passion-fallback {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: oklch(20% 0.015 45);
+  overflow: hidden;
+}
+
+.passion-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+  transition: transform var(--duration-slow) var(--ease-out), filter var(--duration-slow) var(--ease-out);
+}
+
+.passion-card:hover .passion-thumb {
+  transform: scale(1.03);
+  filter: brightness(1);
 }
 
 .passion-fallback-label {
