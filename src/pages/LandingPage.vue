@@ -273,6 +273,7 @@ const topCases = [
 const loopCases = computed(() => [...topCases, ...topCases, ...topCases])
 
 const passionProjects = [
+  { url: 'https://tlguide.com', label: 'tlguide.com', desc: 'A Figma plugin and widget review platform, fully automated with AI — from generating review content to running outreach campaigns.' },
   { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A curated board for AI, creative tech, and design jobs in Amsterdam — built to help multidisciplinary talent discover relevant roles faster.' },
   { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for applying cinematic color grading, film emulation filters, analog grain textures, and vignette effects directly to your designs — no Photoshop needed.', noEmbed: true, thumb: 'figma.webp' },
   { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.' },
