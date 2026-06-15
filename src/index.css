@@ -15,8 +15,8 @@
 
   /* Ink — dark tinted, never pure black */
   --ink:        oklch(15% 0.008 var(--hue));
-  --ink-muted:  oklch(15% 0.008 var(--hue) / 0.55);
-  --ink-faint:  oklch(15% 0.008 var(--hue) / 0.35);
+  --ink-muted:  oklch(15% 0.008 var(--hue) / 0.75);
+  --ink-faint:  oklch(15% 0.008 var(--hue) / 0.60);
 
   /* Accent */
   --accent:     oklch(52% 0.18 25);                 /* warm red accent */

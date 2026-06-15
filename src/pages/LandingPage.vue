@@ -63,7 +63,7 @@
           <div class="cases-scroll">
             <div class="case-card" v-for="(c, i) in loopCases" :key="i" :data-slug="c.slug">
               <div class="case-card-img">
-                <img :src="c.img" :alt="c.title" draggable="false" />
+                <img :src="c.img" :alt="c.title" draggable="false" loading="lazy" decoding="async" />
               </div>
               <div class="case-card-info">
                 <span class="case-card-title">{{ c.title }}</span>
@@ -123,7 +123,7 @@
             >
               <div class="passion-preview">
                 <div v-if="p.noEmbed" class="passion-fallback">
-                  <img :src="'/images/' + p.thumb" :alt="p.label" class="passion-thumb" />
+                  <img :src="'/images/' + p.thumb" :alt="p.label" class="passion-thumb" loading="lazy" decoding="async" />
                 </div>
                 <iframe
                   v-else
@@ -258,15 +258,15 @@ const onMouseMove = (e: MouseEvent) => {
 }
 
 const topCases = [
-  { title: "McDonald's Fan Favorites", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/fan_favorites_hero.png', slug: 'fan-favorites' },
-  { title: 'LG Radio Optimism', client: 'LG Electronics — Global', img: '/cases/images/lg_hero.png', slug: 'lg-radio-optimism' },
+  { title: "McDonald's Fan Favorites", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/fan_favorites_hero.webp', slug: 'fan-favorites' },
+  { title: 'LG Radio Optimism', client: 'LG Electronics — Global', img: '/cases/images/lg_hero.webp', slug: 'lg-radio-optimism' },
   { title: "McDonald's Olifantenpaadjes", client: "McDonald's — TBWA\\NEBOKO", img: '/images/olifantenpaadjes1.jpeg', slug: 'mcdonald-s-olifantenpaadjes' },
-  { title: 'TBWA\\X Custom Arcade', client: 'TBWA\\X', img: '/cases/images/arcade_hero.png', slug: 'arcade' },
+  { title: 'TBWA\\X Custom Arcade', client: 'TBWA\\X', img: '/cases/images/arcade_hero.webp', slug: 'arcade' },
   { title: "McDonald's Delivery Detector", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/mcdeliverydetector.avif', slug: 'delivery-detector' },
   { title: 'SS26 New Amsterdam Surf', client: 'New Amsterdam Surf Association', img: '/cases/images/nasa_thumb.webp', slug: 'ss26-new-amsterdam' },
   { title: 'Al Ghurair Foundation', client: 'Abdulla Al Ghurair Foundation', img: '/cases/images/abdul_thumb.webp', slug: 'abdulla-al-ghurair' },
   { title: 'New Care Supplements', client: 'New Care — Sabatoka', img: '/cases/images/newcare_thumb.webp', slug: 'new-care' },
-  { title: 'Food Token Soup', client: "Branca's Kitchen — Personal", img: '/cases/images/food_token_soup_hero.png', slug: 'food-token-soup' },
+  { title: 'Food Token Soup', client: "Branca's Kitchen — Personal", img: '/cases/images/food_token_soup_hero.webp', slug: 'food-token-soup' },
   { title: "McDonald's Family Mode", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/imgi_1_hero.webp', slug: 'family-mode' },
 ]
 
