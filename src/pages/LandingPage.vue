@@ -41,7 +41,7 @@
         </pre>
         <div class="hero-sub">
           <p class="role">Creative Technologist</p>
-          <p class="intro">I build ideas from concept to code — blending design, technology and craft to create things that work and feel right.</p>
+          <p class="intro">I take ideas from rough concept to working code. Design, technology and craft all matter, but the point is to make something that actually works and feels right.</p>
         </div>
       </section>
 
@@ -93,7 +93,7 @@
               <span class="sandbox-cta">Open Interactive Sandbox <span class="arrow">&rarr;</span></span>
             </div>
           </div>
-          <p class="sandbox-desc">Explore my interactive N8N-style workflow playground — drag nodes, connect ideas.</p>
+          <p class="sandbox-desc">My N8N-style workflow playground. Drag nodes, connect ideas, see what happens.</p>
         </router-link>
       </section>
 
@@ -151,7 +151,7 @@
         </div>
         <router-link to="/about" class="about-card">
           <div class="about-content">
-            <p class="about-text">Creative Technologist at TBWA\NEBOKO, bridging design and development. I build AI-driven campaigns, interactive installations, and digital products — turning ideas into things people can experience.</p>
+            <p class="about-text">Creative Technologist at TBWA\NEBOKO, bridging design and development. I build AI-driven campaigns, interactive installations and digital products. The goal is to turn ideas into things people can actually experience.</p>
             <span class="view-about">Read more <span class="arrow">&rarr;</span></span>
           </div>
         </router-link>
@@ -273,12 +273,12 @@ const topCases = [
 const loopCases = computed(() => [...topCases, ...topCases, ...topCases])
 
 const passionProjects = [
-  { url: 'https://tlguide.com', label: 'tlguide.com', desc: 'A Figma plugin and widget review platform, fully automated with AI — from generating review content to running outreach campaigns.' },
-  { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A curated board for AI, creative tech, and design jobs in Amsterdam — built to help multidisciplinary talent discover relevant roles faster.' },
-  { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for applying cinematic color grading, film emulation filters, analog grain textures, and vignette effects directly to your designs — no Photoshop needed.', noEmbed: true, thumb: 'figma.webp' },
-  { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'An AI search engine where every result is AI-generated — built to explore synthetic web content in a familiar search experience.' },
-  { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'Lower AI API spend without changing the models your team already trusts — a private-beta marketplace with vetted buyers and anonymous sellers, where buyers save 20% and sellers earn from spare capacity.' },
-  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'A tool that generates AI assessments and graph reports on Reddit users — visualizing activity, interests and posting behaviour at a glance.' },
+  { url: 'https://tlguide.com', label: 'tlguide.com', desc: 'A review site for Figma plugins and widgets. AI writes the reviews and handles outreach, end to end.' },
+  { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A job board for AI, creative tech and design roles in Amsterdam. I built it because multidisciplinary people need a place to find jobs that actually fit.' },
+  { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for color grading, film emulation, grain and vignette. Apply them straight to your designs without touching Photoshop.', noEmbed: true, thumb: 'figma.webp' },
+  { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'A search engine where every result is AI-generated. It looks like a normal search page, but the web content is synthetic.' },
+  { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'A private marketplace for reselling AI API credit. Buyers keep using the models they already know and pay about 20% less. Sellers make money off unused capacity.' },
+  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'Paste a Reddit username and get an AI assessment plus graphs. Activity, interests and posting behaviour, all on one page.' },
 ]
 
 const loopPassion = computed(() => [...passionProjects, ...passionProjects, ...passionProjects])
