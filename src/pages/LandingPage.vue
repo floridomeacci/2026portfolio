@@ -41,7 +41,7 @@
         </pre>
         <div class="hero-sub">
           <p class="role">Creative Technologist</p>
-          <p class="intro">I take ideas from rough concept to working code. Design, technology and craft all matter, but the point is to make something that actually works and feels right.</p>
+          <p class="intro">I like taking an idea from something vague to something that actually works. Usually that means mixing design, tech and a bit of craft until it feels right.</p>
         </div>
       </section>
 
@@ -93,7 +93,7 @@
               <span class="sandbox-cta">Open Interactive Sandbox <span class="arrow">&rarr;</span></span>
             </div>
           </div>
-          <p class="sandbox-desc">My N8N-style workflow playground. Drag nodes, connect ideas, see what happens.</p>
+          <p class="sandbox-desc">An N8N-style workflow playground. Drag nodes, connect ideas, break things.</p>
         </router-link>
       </section>
 
@@ -151,7 +151,7 @@
         </div>
         <router-link to="/about" class="about-card">
           <div class="about-content">
-            <p class="about-text">Creative Technologist at TBWA\NEBOKO, bridging design and development. I build AI-driven campaigns, interactive installations and digital products. The goal is to turn ideas into things people can actually experience.</p>
+            <p class="about-text">Creative Technologist at TBWA\NEBOKO, somewhere between design and development. I build AI-driven campaigns, interactive installations and digital products. I just want to make ideas into things people can use.</p>
             <span class="view-about">Read more <span class="arrow">&rarr;</span></span>
           </div>
         </router-link>
@@ -273,12 +273,12 @@ const topCases = [
 const loopCases = computed(() => [...topCases, ...topCases, ...topCases])
 
 const passionProjects = [
-  { url: 'https://tlguide.com', label: 'tlguide.com', desc: 'A review site for Figma plugins and widgets. AI writes the reviews and handles outreach, end to end.' },
-  { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A job board for AI, creative tech and design roles in Amsterdam. I built it because multidisciplinary people need a place to find jobs that actually fit.' },
-  { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for color grading, film emulation, grain and vignette. Apply them straight to your designs without touching Photoshop.', noEmbed: true, thumb: 'figma.webp' },
-  { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'A search engine where every result is AI-generated. It looks like a normal search page, but the web content is synthetic.' },
-  { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'A private marketplace for reselling AI API credit. Buyers keep using the models they already know and pay about 20% less. Sellers make money off unused capacity.' },
-  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'Paste a Reddit username and get an AI assessment plus graphs. Activity, interests and posting behaviour, all on one page.' },
+  { url: 'https://tlguide.com', label: 'tlguide.com', desc: 'I made a review site for Figma plugins and widgets. The reviews and outreach are mostly automated with AI.' },
+  { url: 'https://jobs.floridomeacci.xyz', label: 'jobs.floridomeacci.xyz', desc: 'A job board for AI, creative tech and design roles in Amsterdam. I built it because I got tired of seeing good people miss relevant jobs.' },
+  { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for color grading, film grain and vignette. No Photoshop needed.', noEmbed: true, thumb: 'figma.webp' },
+  { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'Every search result is AI-generated. It looks normal, but the content is fake.' },
+  { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'A private marketplace for reselling AI API credit. Buyers pay less, sellers monetize unused capacity.' },
+  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'Paste a Reddit username, get an AI-generated report with graphs. Activity, interests, posting habits.' },
 ]
 
 const loopPassion = computed(() => [...passionProjects, ...passionProjects, ...passionProjects])

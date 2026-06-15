@@ -113,7 +113,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Fan Favorites",
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "Fans in Spain, Portugal and the Netherlands built their own McDonald's menu, then AI turned it into images. I ran the asset-generation pipeline and we made over 4 million visuals ahead of launch.",
+    description: "Fans in Spain, Portugal and the Netherlands built their own McDonald's menu, then AI turned it into images. I ran the pipeline. We made over 4 million visuals before launch.",
     tags: ['AI', 'Pipeline', 'Generative'],
     darkBg: true,
     images: [img('fanfavorites.webp'), img('fanfavo1.webp'), img('fanfavo2.webp'), img('fanfavo3.webp'), img('fanfavo4.webp')]
@@ -121,7 +121,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'LG Radio Optimism',
     client: 'LG Electronics — Global',
-    description: "A global campaign that turned user stories into AI-generated songs and album covers, using Adobe Firefly. I built the live album-cover generator.",
+    description: "User stories became AI-generated songs and album covers. I built the live album-cover generator with Adobe Firefly.",
     tags: ['AI', 'Real-time', 'Global Campaign'],
     youtube: 'https://www.youtube.com/embed/1y2SWAntro8',
     images: [img('lg.webp'), '/images/lgradio1.webp', '/images/lgradio2.webp']
@@ -129,7 +129,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Olifantenpaadjes",
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "We mapped unofficial shortcuts in the Netherlands and checked how many pointed toward McDonald's. I built the interactive map.",
+    description: "We mapped unofficial shortcuts in the Netherlands and counted how many pointed at McDonald's. I built the interactive map.",
     tags: ['Interactive Map', 'Geo Data', 'Creative Tech'],
     projectUrl: 'https://mcd-pad.vercel.app/',
     images: [
@@ -143,7 +143,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Family Mode",
     client: "McDonald's Netherlands — TBWA\\NEBOKO",
-    description: "An in-app feature that turned McDonald's placemats into AR board games. Families got custom avatars and AI-generated stories. I did all the 3D character design, rigging, animation and web assets. Users made over a million avatars.",
+    description: "McDonald's placemats became AR board games. I did the 3D characters, rigging, animation and web assets. Over a million avatars made.",
     tags: ['3D', 'AR', 'App Feature', 'Webby Winner 2024'],
 
     video: '/cases/videos/AvatarCreator.mp4',
@@ -161,7 +161,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Delivery Detector",
     client: "McDonald's Netherlands — TBWA\\NEBOKO",
-    description: "A limited-edition 3D-printed smoke alarm shaped like a Big Mac. It detected smoke and ordered McDonald's. I did the full 3D design, from concept to production files. Adweek, Highsnobiety and B&T covered it.",
+    description: "A Big Mac-shaped smoke alarm that ordered McDonald's when it detected smoke. I did the 3D design. Adweek, Highsnobiety and B&T wrote about it.",
     tags: ['3D Product Design', 'Campaign', 'ADCN Nominated'],
 
     video: '/cases/videos/mcdeliverydetector.mp4',
@@ -170,7 +170,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'SS26 New Amsterdam Surf Association',
     client: 'New Amsterdam Surf Association — Sabatoka',
-    description: "A generative AI experience for Paris Fashion Week 2025. Visitors uploaded a selfie and got dropped into a Palm Beach scene, made with image-to-image models and face swap. OpenAI Vision wrote the prompt, newer AI models built the scene, and an n8n server handled the queue. I prototyped and shipped it with bolt.new and n8n.",
+    description: "For Paris Fashion Week 2025, visitors uploaded a selfie and got dropped into a Palm Beach scene. Image-to-image models, face swap and an n8n queue. Prototyped in bolt.new.",
     tags: ['AI', 'GenAI', 'Fashion', 'Web App'],
     video: '/cases/videos/nasa_ss26.mp4',
     images: [img('nasa1.webp'), img('nasa2.webp')]
@@ -178,7 +178,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'Abdulla Al Ghurair Foundation',
     client: 'Abdulla Al Ghurair Foundation — We Are Anatomy / Sabatoka',
-    description: "For the Abdulla Al Ghurair Foundation in Dubai I built a custom interface and an AI video generator. It launched on Emirati Education Day. The hard part was volume: thousands of images to review and hundreds of videos to generate. I built internal tools to manage the review process and keep everything working offline, since the installation had to run reliably on site.",
+    description: "Custom interface and AI video generator for the Abdulla Al Ghurair Foundation in Dubai. The hard part was processing thousands of images and hundreds of videos offline. I built tools to handle the review queue and keep the installation running on site.",
     tags: ['AI', 'UX/UI', 'Video Gen', 'Installation'],
     videos: ['/cases/videos/abdul_ui.mp4', '/cases/videos/abdul_ai.mp4'],
     images: [img('abdul_thumb.webp')]
@@ -186,7 +186,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'New Care Supplements',
     client: 'New Care — Sabatoka',
-    description: "I make social and campaign assets for New Care Supplements year-round. I also built a 3D and AI pipeline in Cinema 4D to produce a lot of visual content quickly.",
+    description: "Social and campaign assets for New Care Supplements year-round. I also built a 3D and AI pipeline in Cinema 4D to produce more visuals faster.",
     tags: ['3D', 'AI', 'Social', 'Animation', 'Content Pipeline'],
     videos: ['/cases/videos/newcare1.mp4', '/cases/videos/newcare2.mp4', '/cases/videos/newcare3.mp4', '/cases/videos/newcare4.mp4', '/cases/videos/newcare5.mp4', '/cases/videos/newcare6.mp4', '/cases/videos/newcare7.mp4'],
     images: [img('newcare1.webp'), img('newcare2.webp'), img('newcare3.webp')]
@@ -194,7 +194,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's The Hidden Campaign",
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "McDonald's hid easter eggs in games, Twitch streams and its app, including a custom Moonlander arcade game. I did all the 3D design and animation.",
+    description: "McDonald's hid easter eggs in games, Twitch streams and its app, including a custom Moonlander arcade game. I did the 3D design and animation.",
     tags: ['3D', 'Animation', 'Gaming', 'Webby Honoree 2025'],
     video: '/cases/videos/spaceship_horizontal.mp4',
     images: [img('imgi_4_image_ui.webp'), img('imgi_6_footer_bg.webp')]
@@ -235,7 +235,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'Food Token Soup (NFT)',
     client: "Branca's Kitchen — Personal",
-    description: "A personal project from the 2021 NFT wave: 10,000 procedurally generated 3D soup cans. It was a way to learn generative art and smart contracts. Also a reminder that most people do not care about soup.",
+    description: "10,000 procedurally generated 3D soup cans from the 2021 NFT wave. A project to learn generative art and smart contracts. Most people do not care about soup.",
     tags: ['NFT', '3D', 'Generative', 'Coding'],
     video: '/cases/videos/foodtokensoup.mp4',
     images: range(1, 14).map(n => img('soup' + n + '.webp'))
@@ -243,7 +243,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'TBWA\\X Custom Arcade',
     client: 'TBWA\\X',
-    description: "Designed and hand-built a working arcade cabinet for the TBWA\\X office, based on the brand's backslash identity.",
+    description: "Hand-built a working arcade cabinet for the TBWA\\X office, based on their backslash identity.",
     tags: ['Hardware', 'Craftsmanship', 'Design'],
 
     images: range(1, 3).map(n => img('arcade' + n + '.webp'))

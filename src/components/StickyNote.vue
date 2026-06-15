@@ -96,9 +96,13 @@ const formattedContent = computed(() => {
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
   html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
-  html = html.replace(/(<li>.*<\/li>\n?)+/gs, '<ul>$&</ul>');
-
   html = html.replace(/^  ○ (.+)$/gm, '<li class="sub-item">$1</li>');
+  html = html.replace(/(<li[^>]*>.*<\/li>\n?)+/gs, '<ul>$&</ul>');
+
+  // Remove stray breaks inside <ul> so lists only contain <li> elements
+  html = html.replace(/<ul>[\s\n]*(<li[^>]*>[\s\S]*?<\/li>[\s\n]*)+<\/ul>/g, (match) => {
+    return match.replace(/<br\s*\/?>\n?|\n/g, '');
+  });
 
   html = html.replace(/\n\n/g, '<br><br>');
   html = html.replace(/\n/g, '<br>');

@@ -27,25 +27,25 @@
             <div class="entry">
               <span class="date">2024.07 &#x2013; Present</span>
               <span class="company">TBWA\NEBOKO &#x2014; Creative Technologist</span>
-              <span class="body-text">Built AI automation frameworks for global campaigns. Also made 3D and interactive web experiences, from first concept to launch.</span>
+              <span class="body-text">AI automation for global campaigns. 3D and interactive web experiences from concept to launch.</span>
             </div>
 
             <div class="entry">
               <span class="date">2021.05 &#x2013; 2024.08</span>
               <span class="company">TBWA\NEBOKO &#x2014; Digital Designer</span>
-              <span class="body-text">Brought AI and new tech into digital design workflows. Made social content and interactive brand work, from concept to final delivery.</span>
+              <span class="body-text">AI and new tech in digital design workflows. Social content and interactive brand work, start to finish.</span>
             </div>
 
             <div class="entry">
               <span class="date">2020.04 &#x2013; 2021.03</span>
               <span class="company">Key Agency</span>
-              <span class="body-text">Made photorealistic 3D visuals in Cinema 4D, Arnold and Substance Painter. Built renders and texture workflows for social and digital campaigns.</span>
+              <span class="body-text">Photorealistic 3D in Cinema 4D, Arnold and Substance Painter. Renders and texture workflows for social and digital.</span>
             </div>
 
             <div class="entry">
               <span class="date">2016.04 &#x2013; 2020.03</span>
               <span class="company">ACT.agency</span>
-              <span class="body-text">Started as Visual Designer and became Lead Designer. Worked across UI/UX, dashboards, infographics and brand books. Designed large-format print: transit wraps, banners, posters. Kept style guides consistent across accounts.</span>
+              <span class="body-text">Visual Designer to Lead Designer. UI/UX, dashboards, infographics and brand books. Large-format print: transit wraps, banners, posters. Style guides across accounts.</span>
             </div>
           </section>
 
@@ -55,13 +55,13 @@
             <div class="entry">
               <span class="date">2017.07 &#x2013; Present</span>
               <span class="company">Sabatoka</span>
-              <span class="body-text">Co-founded a creative studio focused on AI solutions and brand strategy. I handle client acquisition and run projects end to end for brands like Humdrum and New Amsterdam Surf.</span>
+              <span class="body-text">Co-founded a creative studio for AI solutions and brand strategy. Client acquisition and end-to-end projects for Humdrum, New Amsterdam Surf and others.</span>
             </div>
 
             <div class="entry">
               <span class="date">2023 &#x2013; Present</span>
               <span class="company">Creative Technology Collective</span>
-              <span class="body-text">Member of CTC, a group of creative technologists working across art, design and new technology.</span>
+              <span class="body-text">Member of CTC, a group of creative technologists working across art, design and new tech.</span>
             </div>
 
             <div class="entry">
