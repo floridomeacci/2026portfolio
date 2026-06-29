@@ -19,9 +19,8 @@
                   v-for="(link, j) in msg.links"
                   :key="j"
                   :href="link.url"
-                  target="_blank"
-                  rel="noopener"
                   class="msg-link"
+                  @click.prevent="navigate(link.url)"
                 >{{ link.label }} <span class="arrow">&rarr;</span></a>
               </div>
             </div>
@@ -49,6 +48,10 @@
 
 <script setup>
 import { ref, nextTick, watch } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const INTERNAL_DOMAIN = 'floridomeacci.xyz'
 
 const open = ref(false)
 const input = ref('')
@@ -86,6 +89,17 @@ watch(open, (v) => {
 })
 
 watch(messages, scrollBottom, { deep: true })
+
+function navigate(url) {
+  try {
+    const u = new URL(url)
+    if (u.hostname === INTERNAL_DOMAIN || u.hostname === 'www.' + INTERNAL_DOMAIN) {
+      router.push(u.pathname + u.search + u.hash)
+      return
+    }
+  } catch {}
+  window.location.href = url
+}
 
 async function send() {
   const text = input.value.trim()
