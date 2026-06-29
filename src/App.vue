@@ -1,12 +1,14 @@
 <template>
   <router-view />
   <SiteFooter v-if="showFooter" />
+  <ChatBot />
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import SiteFooter from './components/SiteFooter.vue'
+import ChatBot from './components/ChatBot.vue'
 import { useFavicon } from './composables/useFavicon'
 
 const route = useRoute()
