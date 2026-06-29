@@ -72,7 +72,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -123,7 +123,6 @@ const cases = ref<CaseItem[]>([
     client: 'LG Electronics — Global',
     description: "User stories became AI-generated songs and album covers using Adobe Firefly. Albums and tracks were generated live, so each listener got a unique experience.",
     tags: ['AI', 'Real-time', 'Global Campaign'],
-    youtube: 'https://www.youtube.com/embed/1y2SWAntro8',
     images: [img('lg.webp'), '/images/lgradio1.webp', '/images/lgradio2.webp']
   },
   {
@@ -250,17 +249,29 @@ const cases = ref<CaseItem[]>([
   }
 ])
 
-onMounted(() => {
-  const hash = route.hash?.replace('#', '')
+function openCaseFromHash(hash) {
   if (!hash) return
-  const idx = cases.value.findIndex(c => slugify(c.title).includes(hash))
+  const caseSlug = hash.replace(/^case-/, '')
+  const idx = cases.value.findIndex(c => slugify(c.title) === caseSlug)
   if (idx >= 0) {
     expandedCase.value = idx
     nextTick(() => {
       const el = document.getElementById('case-' + slugify(cases.value[idx].title))
-      el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (el) {
+        const headerH = 60
+        const top = el.getBoundingClientRect().top + window.scrollY - headerH
+        window.scrollTo({ top, behavior: 'smooth' })
+      }
     })
   }
+}
+
+onMounted(() => {
+  openCaseFromHash(route.hash?.replace('#', ''))
+})
+
+watch(() => route.hash, (hash) => {
+  openCaseFromHash(hash?.replace('#', ''))
 })
 </script>
 
