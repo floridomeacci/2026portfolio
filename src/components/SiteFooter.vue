@@ -16,6 +16,7 @@
         <div class="footer-links">
           <router-link to="/">HOME</router-link>
           <router-link to="/cases">CASES</router-link>
+          <router-link to="/websites">WEBSITES</router-link>
           <router-link to="/sandbox">N8N SANDBOX</router-link>
           <router-link to="/about">ABOUT</router-link>
         </div>
@@ -28,6 +29,7 @@
           <a href="https://www.latentsearch.net/" target="_blank" rel="noopener">LATENTSEARCH.NET</a>
           <a href="https://creditswap.app" target="_blank" rel="noopener">CREDITSWAP.APP</a>
           <a href="https://jobs.floridomeacci.xyz" target="_blank" rel="noopener">JOBS.FLORIDOMEACCI.XYZ</a>
+          <a href="https://tlguide.com" target="_blank" rel="noopener">TLGUIDE.COM</a>
           <a href="https://www.figma.com/community/plugin/1626934504810261537" target="_blank" rel="noopener">FILTERS & GRAIN</a>
         </div>
       </div>
