@@ -12,7 +12,19 @@
         </div>
         <div class="chatbot-msgs" ref="msgsRef">
           <div v-for="(msg, i) in messages" :key="i" class="msg" :class="msg.role">
-            <div class="msg-bubble">{{ msg.content }}</div>
+            <div class="msg-wrap">
+              <div class="msg-bubble">{{ msg.text }}</div>
+              <div v-if="msg.links.length" class="msg-links">
+                <a
+                  v-for="(link, j) in msg.links"
+                  :key="j"
+                  :href="link.url"
+                  target="_blank"
+                  rel="noopener"
+                  class="msg-link"
+                >{{ link.label }} <span class="arrow">&rarr;</span></a>
+              </div>
+            </div>
           </div>
           <div v-if="loading" class="msg assistant">
             <div class="msg-bubble typing"><span class="dot-pulse"></span></div>
@@ -41,8 +53,19 @@ import { ref, nextTick, watch } from 'vue'
 const open = ref(false)
 const input = ref('')
 const loading = ref(false)
+function parseMsg(content) {
+  const re = /\[\[([^|]+)\|([^\]]+)\]\]/g
+  const links = []
+  let match
+  while ((match = re.exec(content)) !== null) {
+    links.push({ label: match[1], url: match[2] })
+  }
+  const text = content.replace(re, '').trim()
+  return { text, links }
+}
+
 const messages = ref([
-  { role: 'assistant', content: 'Hi! Ask me anything about Florido, his work, or this website.' }
+  parseMsg('Hi! Ask me anything about Florido, his work, or this website.')
 ])
 
 const msgsRef = ref(null)
@@ -68,7 +91,7 @@ async function send() {
   const text = input.value.trim()
   if (!text || loading.value) return
   input.value = ''
-  messages.value.push({ role: 'user', content: text })
+  messages.value.push({ role: 'user', text, links: [] })
   loading.value = true
 
   try {
@@ -80,9 +103,9 @@ async function send() {
     })
     const data = await res.json()
     const reply = data.reply || "I don't know."
-    messages.value.push({ role: 'assistant', content: reply })
+    messages.value.push({ role: 'assistant', ...parseMsg(reply) })
   } catch {
-    messages.value.push({ role: 'assistant', content: "Sorry, I couldn't reach the server. Try again later." })
+    messages.value.push({ role: 'assistant', text: "Sorry, I couldn't reach the server. Try again later.", links: [] })
   } finally {
     loading.value = false
   }
@@ -164,13 +187,15 @@ async function send() {
 }
 
 .msg-bubble {
-  max-width: 280px;
   padding: 8px 12px;
   border-radius: 10px;
   font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.5;
   color: #0a0a09;
+}
+.msg.user .msg-wrap {
+  align-items: flex-end;
 }
 .msg.user .msg-bubble {
   background: #0a0a09;
@@ -180,6 +205,50 @@ async function send() {
 .msg.assistant .msg-bubble {
   background: #e8e5e2;
   border-bottom-left-radius: 4px;
+}
+
+.msg-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 280px;
+}
+
+.msg-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.msg-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1px solid #0a0a09;
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #0a0a09;
+  background: transparent;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+  width: fit-content;
+}
+
+.msg-link:hover {
+  background: #0a0a09;
+  color: #f7f5f2;
+}
+
+.msg-link .arrow {
+  font-size: 12px;
+  line-height: 1;
 }
 
 .typing {
