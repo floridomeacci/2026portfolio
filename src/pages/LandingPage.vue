@@ -45,41 +45,11 @@
         </div>
       </section>
 
-      <!-- Cases -->
-      <section class="section reveal" id="cases">
-        <div class="sec-hdr">
-          <span>Cases</span>
-          <span class="idx">01</span>
-        </div>
-        <div
-          class="cases-scroll-wrap"
-          ref="scrollRef"
-          @pointerdown="onPointerDown"
-          @pointermove="onPointerMove"
-          @pointerup="onPointerUp"
-          @pointercancel="onPointerUp"
-          @pointerleave="onPointerUp"
-        >
-          <div class="cases-scroll">
-            <div class="case-card" v-for="(c, i) in loopCases" :key="i" :data-slug="c.slug">
-              <div class="case-card-img">
-                <img :src="c.img" :alt="c.title" draggable="false" loading="lazy" decoding="async" />
-              </div>
-              <div class="case-card-info">
-                <span class="case-card-title">{{ c.title }}</span>
-                <span class="case-card-client">{{ c.client }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <router-link to="/cases" class="cases-directory">View all cases <span class="arrow">&rarr;</span></router-link>
-      </section>
-
       <!-- Personal Projects -->
       <section class="section reveal">
         <div class="sec-hdr">
           <span>Personal Projects</span>
-          <span class="idx">02</span>
+          <span class="idx">01</span>
         </div>
         <div
           class="passion-scroll-wrap"
@@ -125,7 +95,7 @@
       <section class="section reveal">
         <div class="sec-hdr">
           <span>N8N Sandbox</span>
-          <span class="idx">03</span>
+          <span class="idx">02</span>
         </div>
         <router-link to="/sandbox" class="sandbox-card">
           <div class="sandbox-preview">
@@ -141,6 +111,36 @@
           </div>
           <p class="sandbox-desc">An N8N-style workflow playground. Drag nodes, connect ideas, break things.</p>
         </router-link>
+      </section>
+
+      <!-- Cases -->
+      <section class="section reveal" id="cases">
+        <div class="sec-hdr">
+          <span>Cases</span>
+          <span class="idx">03</span>
+        </div>
+        <div
+          class="cases-scroll-wrap"
+          ref="scrollRef"
+          @pointerdown="onPointerDown"
+          @pointermove="onPointerMove"
+          @pointerup="onPointerUp"
+          @pointercancel="onPointerUp"
+          @pointerleave="onPointerUp"
+        >
+          <div class="cases-scroll">
+            <div class="case-card" v-for="(c, i) in loopCases" :key="i" :data-slug="c.slug">
+              <div class="case-card-img">
+                <img :src="c.img" :alt="c.title" draggable="false" loading="lazy" decoding="async" />
+              </div>
+              <div class="case-card-info">
+                <span class="case-card-title">{{ c.title }}</span>
+                <span class="case-card-client">{{ c.client }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <router-link to="/cases" class="cases-directory">View all cases <span class="arrow">&rarr;</span></router-link>
       </section>
 
       <!-- About -->
