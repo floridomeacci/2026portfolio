@@ -160,10 +160,6 @@ async function send() {
   bottom: var(--space-xl);
   right: var(--space-xl);
   z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-md);
 }
 
 /* ─── Toggle button ─── */
@@ -195,8 +191,11 @@ async function send() {
 
 /* ─── Panel ─── */
 .chatbot-panel {
+  position: absolute;
+  bottom: calc(100% + var(--space-md));
+  right: 0;
   width: min(360px, calc(100vw - 48px));
-  max-height: min(520px, calc(100vh - 120px));
+  max-height: min(520px, calc(100vh - 180px));
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -421,10 +420,13 @@ async function send() {
   transition: opacity calc(var(--dur-med) * 0.75) var(--ease-out),
               transform calc(var(--dur-med) * 0.75) var(--ease-out);
 }
-.panel-enter-from,
+.panel-enter-from {
+  opacity: 0;
+  transform: translateY(8px) scale(0.96);
+}
 .panel-leave-to {
   opacity: 0;
-  transform: translateY(var(--space-sm)) scale(0.94);
+  transform: translateY(-4px) scale(0.96);
 }
 
 /* ─── Reduced motion ─── */
