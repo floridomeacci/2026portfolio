@@ -75,33 +75,11 @@
         <router-link to="/cases" class="cases-directory">View all cases <span class="arrow">&rarr;</span></router-link>
       </section>
 
-      <!-- Sandbox Preview -->
-      <section class="section reveal">
-        <div class="sec-hdr">
-          <span>N8N Sandbox</span>
-          <span class="idx">02</span>
-        </div>
-        <router-link to="/sandbox" class="sandbox-card">
-          <div class="sandbox-preview">
-            <img
-              src="/images/n8n.webp"
-              alt="N8N Sandbox Preview"
-              class="sandbox-img"
-              loading="lazy"
-            />
-            <div class="sandbox-overlay">
-              <span class="sandbox-cta">Open Interactive Sandbox <span class="arrow">&rarr;</span></span>
-            </div>
-          </div>
-          <p class="sandbox-desc">An N8N-style workflow playground. Drag nodes, connect ideas, break things.</p>
-        </router-link>
-      </section>
-
       <!-- Personal Projects -->
       <section class="section reveal">
         <div class="sec-hdr">
           <span>Personal Projects</span>
-          <span class="idx">03</span>
+          <span class="idx">02</span>
         </div>
         <div
           class="passion-scroll-wrap"
@@ -141,6 +119,28 @@
             </a>
           </div>
         </div>
+      </section>
+
+      <!-- Sandbox Preview -->
+      <section class="section reveal">
+        <div class="sec-hdr">
+          <span>N8N Sandbox</span>
+          <span class="idx">03</span>
+        </div>
+        <router-link to="/sandbox" class="sandbox-card">
+          <div class="sandbox-preview">
+            <img
+              src="/images/n8n.webp"
+              alt="N8N Sandbox Preview"
+              class="sandbox-img"
+              loading="lazy"
+            />
+            <div class="sandbox-overlay">
+              <span class="sandbox-cta">Open Interactive Sandbox <span class="arrow">&rarr;</span></span>
+            </div>
+          </div>
+          <p class="sandbox-desc">An N8N-style workflow playground. Drag nodes, connect ideas, break things.</p>
+        </router-link>
       </section>
 
       <!-- About -->
