@@ -113,7 +113,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Fan Favorites",
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "Fans in Spain, Portugal and the Netherlands built their own McDonald's menu, then AI turned it into images. I ran the pipeline. We made over 4 million visuals before launch.",
+    description: "Fans across Spain, Portugal and the Netherlands built their own McDonald's menu with AI. I pre-rendered over 4 million unique combinations.",
     tags: ['AI', 'Pipeline', 'Generative'],
     darkBg: true,
     images: [img('fanfavorites.webp'), img('fanfavo1.webp'), img('fanfavo2.webp'), img('fanfavo3.webp'), img('fanfavo4.webp')]
@@ -121,7 +121,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'LG Radio Optimism',
     client: 'LG Electronics — Global',
-    description: "User stories became AI-generated songs and album covers. I built the live album-cover generator with Adobe Firefly.",
+    description: "User stories became AI-generated songs and album covers using Adobe Firefly. Albums and tracks were generated live, so each listener got a unique experience.",
     tags: ['AI', 'Real-time', 'Global Campaign'],
     youtube: 'https://www.youtube.com/embed/1y2SWAntro8',
     images: [img('lg.webp'), '/images/lgradio1.webp', '/images/lgradio2.webp']
@@ -143,7 +143,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Family Mode",
     client: "McDonald's Netherlands — TBWA\\NEBOKO",
-    description: "McDonald's placemats became AR board games. I did the 3D characters, rigging, animation and web assets. Over a million avatars made.",
+    description: "An interactive feature in the McDonald's App that turned physical placemats into AR board games. Users made family avatars and read along with Happy Meal books. Over a million avatars were made.",
     tags: ['3D', 'AR', 'App Feature', 'Webby Winner 2024'],
 
     video: '/cases/videos/AvatarCreator.mp4',

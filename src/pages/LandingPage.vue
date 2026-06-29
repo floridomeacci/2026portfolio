@@ -151,7 +151,7 @@
         </div>
         <router-link to="/about" class="about-card">
           <div class="about-content">
-            <p class="about-text">Creative Technologist at TBWA\NEBOKO, somewhere between design and development. I build AI-driven campaigns, interactive installations and digital products. I just want to make ideas into things people can use.</p>
+            <p class="about-text">Creative Technologist at TBWA\NEBOKO. I connect brand strategy, automation and applied AI to build systems that actually work. Campaigns, tools, installations - if it needs a mix of design and code, that's my lane.</p>
             <span class="view-about">Read more <span class="arrow">&rarr;</span></span>
           </div>
         </router-link>
@@ -278,7 +278,7 @@ const passionProjects = [
   { url: 'https://www.figma.com/community/plugin/1626934504810261537', label: 'Filters & Grain', desc: 'A Figma plugin for color grading, film grain and vignette. No Photoshop needed.', noEmbed: true, thumb: 'figma.webp' },
   { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'Every search result is AI-generated. It looks normal, but the content is fake.' },
   { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'A private marketplace for reselling AI API credit. Buyers pay less, sellers monetize unused capacity.' },
-  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'Paste a Reddit username, get an AI-generated report with graphs. Activity, interests, posting habits.' },
+  { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'Paste a Reddit username, get an AI-generated report with graphs. Activity, interests, posting habits.', noEmbed: true, thumb: 'reddit2.png' },
 ]
 
 const loopPassion = computed(() => [...passionProjects, ...passionProjects, ...passionProjects])

@@ -27,25 +27,25 @@
             <div class="entry">
               <span class="date">2024.07 &#x2013; Present</span>
               <span class="company">TBWA\NEBOKO &#x2014; Creative Technologist</span>
-              <span class="body-text">AI automation for global campaigns. 3D and interactive web experiences from concept to launch.</span>
+              <span class="body-text">AI automation pipelines for global campaigns. 3D and interactive web work from concept to launch.</span>
             </div>
 
             <div class="entry">
               <span class="date">2021.05 &#x2013; 2024.08</span>
               <span class="company">TBWA\NEBOKO &#x2014; Digital Designer</span>
-              <span class="body-text">AI and new tech in digital design workflows. Social content and interactive brand work, start to finish.</span>
+              <span class="body-text">Brought AI tools into the day-to-day workflow. Social content and interactive brand work from concept through delivery.</span>
             </div>
 
             <div class="entry">
               <span class="date">2020.04 &#x2013; 2021.03</span>
               <span class="company">Key Agency</span>
-              <span class="body-text">Photorealistic 3D in Cinema 4D, Arnold and Substance Painter. Renders and texture workflows for social and digital.</span>
+              <span class="body-text">Photorealistic 3D visuals with Cinema 4D, Arnold and Substance Painter. Renders and texture workflows for social and digital channels.</span>
             </div>
 
             <div class="entry">
               <span class="date">2016.04 &#x2013; 2020.03</span>
               <span class="company">ACT.agency</span>
-              <span class="body-text">Visual Designer to Lead Designer. UI/UX, dashboards, infographics and brand books. Large-format print: transit wraps, banners, posters. Style guides across accounts.</span>
+              <span class="body-text">Promoted to Lead Designer. Owned design from UI/UX to brand books, large-format print and style guides across accounts.</span>
             </div>
           </section>
 
@@ -55,7 +55,7 @@
             <div class="entry">
               <span class="date">2017.07 &#x2013; Present</span>
               <span class="company">Sabatoka</span>
-              <span class="body-text">Co-founded a creative studio for AI solutions and brand strategy. Client acquisition and end-to-end projects for Humdrum, New Amsterdam Surf and others.</span>
+              <span class="body-text">Co-founded a creative studio making custom AI tools and brand work. Lead client acquisition and run full projects for brands like Humdrum and New Amsterdam Surf.</span>
             </div>
 
             <div class="entry">
@@ -128,7 +128,7 @@
             <div class="skills-grid">
               <div class="sk-row"><span class="l">Python</span><span class="r">Machine Learning</span></div>
               <div class="sk-row"><span class="l">n8n / low-code</span><span class="r">Public Speaking</span></div>
-              <div class="sk-row"><span class="l">Prototyping</span><span class="r">AI consultancy</span></div>
+              <div class="sk-row"><span class="l">Prototyping</span><span class="r">Data Science</span></div>
               <div class="sk-row"><span class="l">3D / C4D</span><span class="r">UI / UX</span></div>
               <div class="sk-row"><span class="l">Web Dev</span><span class="r">Automation</span></div>
             </div>
