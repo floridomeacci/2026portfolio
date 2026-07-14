@@ -19,7 +19,7 @@
             :style="{ '--idx': i }"
           >
             <div class="msg-wrap">
-              <div class="msg-bubble">{{ msg.text }}</div>
+              <div class="msg-bubble" v-html="renderMarkdown(msg.text)"></div>
               <div v-if="msg.links.length" class="msg-links">
                 <a
                   v-for="(link, j) in msg.links"
@@ -66,6 +66,19 @@ const INTERNAL_DOMAIN = 'floridomeacci.xyz'
 const open = ref(false)
 const input = ref('')
 const loading = ref(false)
+function renderMarkdown(text) {
+  if (!text) return ''
+  let html = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+  html = html
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\n/g, '<br>')
+  return html
+}
+
 function parseMsg(content) {
   const re = /\[\[([^|]+)\|([^\]]+)\]\]/g
   const links = []

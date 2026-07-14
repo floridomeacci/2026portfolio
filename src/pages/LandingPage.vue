@@ -50,7 +50,7 @@
       <!-- Personal Projects -->
       <section class="section reveal">
         <div class="sec-hdr">
-          <span>Personal Projects</span>
+          <span>My Websites</span>
           <span class="idx">01</span>
         </div>
         <div

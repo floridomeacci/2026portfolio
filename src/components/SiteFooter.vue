@@ -23,7 +23,7 @@
       </div>
 
       <div class="footer-row">
-        <span class="footer-label">PROJECTS</span>
+        <span class="footer-label">MY WEBSITES</span>
         <div class="footer-links">
           <a href="https://reddituser.info" target="_blank" rel="noopener">REDDITUSER.INFO</a>
           <a href="https://www.latentsearch.net/" target="_blank" rel="noopener">LATENTSEARCH.NET</a>
