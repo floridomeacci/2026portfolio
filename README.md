@@ -26,6 +26,8 @@ The source for [floridomeacci.xyz](https://floridomeacci.xyz), my portfolio as a
 | Assistant endpoint | Vercel Function and Replicate |
 | Hosting configuration | Vercel |
 
+[![Tech stack: Vue, TypeScript, Vite, Tailwind CSS, CSS, and HTML](https://skillicons.dev/icons?i=vue,ts,vite,tailwind,css,html)](https://skillicons.dev)
+
 ## Run locally
 
 You need Node.js 20 or newer and npm.
@@ -59,3 +61,7 @@ src/pages/    Route-level portfolio pages
 src/components/ Shared interface and canvas components
 src/composables/ Reusable Vue behavior
 ```
+
+## Support
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/floridomeacci)
