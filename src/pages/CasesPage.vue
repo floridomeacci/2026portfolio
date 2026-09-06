@@ -113,7 +113,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Fan Favorites",
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "Fans across Spain, Portugal and the Netherlands built their own McDonald's menu with AI. I pre-rendered over 4 million unique combinations.",
+    description: "Ran this three times — Netherlands, Portugal, Spain. I built the pipeline in Python. For each market I generated every product with AI (Flux, later ChatGPT), combined them into millions of menu combinations at scale, and handled all uploads and naming. Over 4 million unique combos. Design teams did post-editing for a week.",
     tags: ['AI', 'Pipeline', 'Generative'],
     darkBg: true,
     images: [img('fanfavorites.webp'), img('fanfavo1.webp'), img('fanfavo2.webp'), img('fanfavo3.webp'), img('fanfavo4.webp')]
@@ -121,15 +121,15 @@ const cases = ref<CaseItem[]>([
   {
     title: 'LG Radio Optimism',
     client: 'LG Electronics — Global',
-    description: "User stories became AI-generated songs and album covers using Adobe Firefly. Albums and tracks were generated live, so each listener got a unique experience.",
+    description: "I was in charge of the thumbnail album covers for each custom AI-generated song. Used Adobe Firefly to generate thousands of assets, stress-testing every language and prompt type. Built the pipeline in n8n with a custom testing frontend. Songs and covers were generated live — each listener got something unique. LG in collaboration with Adobe Firefly. Reached over a million users.",
     tags: ['AI', 'Real-time', 'Global Campaign'],
     images: [img('lg.webp'), '/images/lgradio1.webp', '/images/lgradio2.webp']
   },
   {
     title: "McDonald's Olifantenpaadjes",
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "We mapped unofficial shortcuts in the Netherlands and counted how many pointed at McDonald's. I built the interactive map.",
-    tags: ['Interactive Map', 'Geo Data', 'Creative Tech'],
+    description: "Mapped unofficial footpath shortcuts across the Netherlands and cross-referenced them with McDonald's locations. I built the interactive map (React, Vercel) using OpenPath data and Google Street View to verify paths that pass McDonald's poles. Confirmed paths were photographed by interns.",
+    tags: ['Interactive Map', 'React', 'Geo Data'],
     projectUrl: 'https://mcd-pad.vercel.app/',
     images: [
       '/images/olifantenpaadjes1.jpeg',
@@ -142,7 +142,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Family Mode",
     client: "McDonald's Netherlands — TBWA\\NEBOKO",
-    description: "An interactive feature in the McDonald's App that turned physical placemats into AR board games. Users made family avatars and read along with Happy Meal books. Over a million avatars were made.",
+    description: "I built the entire 3D world — all characters, items, clothing, all packaged in a .glb file. All animations in Cinema 4D and Blender. Over half a million avatars were made.",
     tags: ['3D', 'AR', 'App Feature', 'Webby Winner 2024'],
 
     video: '/cases/videos/AvatarCreator.mp4',
@@ -160,8 +160,8 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Delivery Detector",
     client: "McDonald's Netherlands — TBWA\\NEBOKO",
-    description: "A Big Mac-shaped smoke alarm that ordered McDonald's when it detected smoke. I did the 3D design. Adweek, Highsnobiety and B&T wrote about it.",
-    tags: ['3D Product Design', 'Campaign', 'ADCN Nominated'],
+    description: "A limited-edition 3D-printed smoke alarm shaped like a Big Mac that auto-ordered McDonald's when it detected smoke. I designed the full product as a printable device from concept to production files. Covered by Adweek, Highsnobiety and B&T.",
+    tags: ['3D Product Design', '3D Printing', 'Campaign', 'ADCN Nominated'],
 
     video: '/cases/videos/mcdeliverydetector.mp4',
     images: [img('mcdeliverydetector.avif'), img('burger1.webp'), img('burger2.webp'), img('burger3.webp')]
@@ -169,23 +169,23 @@ const cases = ref<CaseItem[]>([
   {
     title: 'SS26 New Amsterdam Surf Association',
     client: 'New Amsterdam Surf Association — Sabatoka',
-    description: "For Paris Fashion Week 2025, visitors uploaded a selfie and got dropped into a Palm Beach scene. Image-to-image models, face swap and an n8n queue. Prototyped in bolt.new.",
-    tags: ['AI', 'GenAI', 'Fashion', 'Web App'],
+    description: "A mobile web app for Paris Fashion Week 2025: upload a selfie and get dropped into a Palm Beach scene. I built the entire thing end-to-end. Backend on n8n with Replicate for AI, AWS for NSFW detection. Frontend in React. Cloudflare Workers, R2 storage, Hetzner server scaling to 500 concurrent executions.",
+    tags: ['AI', 'React', 'n8n', 'Fashion', 'Web App'],
     video: '/cases/videos/nasa_ss26.mp4',
     images: [img('nasa1.webp'), img('nasa2.webp')]
   },
   {
     title: 'Abdulla Al Ghurair Foundation',
     client: 'Abdulla Al Ghurair Foundation — We Are Anatomy / Sabatoka',
-    description: "Custom interface and AI video generator for the Abdulla Al Ghurair Foundation in Dubai. The hard part was processing thousands of images and hundreds of videos offline. I built tools to handle the review queue and keep the installation running on site.",
-    tags: ['AI', 'UX/UI', 'Video Gen', 'Installation'],
+    description: "Built the software for an interactive touchscreen installation at an exhibition. Users selected options and the screen displayed AI-generated videos. The full app ran locally without internet. React frontend, custom offline video pipeline. UI/UX by Rex Amesbury.",
+    tags: ['AI', 'React', 'Video Gen', 'Installation'],
     videos: ['/cases/videos/abdul_ui.mp4', '/cases/videos/abdul_ai.mp4'],
     images: [img('abdul_thumb.webp')]
   },
   {
     title: 'New Care Supplements',
     client: 'New Care — Sabatoka',
-    description: "Social and campaign assets for New Care Supplements year-round. I also built a 3D and AI pipeline in Cinema 4D to produce more visuals faster.",
+    description: "Created social content and animations for New Care over several years. Built a 3D + AI pipeline: AI generation (nano-banana, seedream) composited with 3D product renders in Cinema 4D. Modelled the entire product catalog — over 100 products — in 3D.",
     tags: ['3D', 'AI', 'Social', 'Animation', 'Content Pipeline'],
     videos: ['/cases/videos/newcare1.mp4', '/cases/videos/newcare2.mp4', '/cases/videos/newcare3.mp4', '/cases/videos/newcare4.mp4', '/cases/videos/newcare5.mp4', '/cases/videos/newcare6.mp4', '/cases/videos/newcare7.mp4'],
     images: [img('newcare1.webp'), img('newcare2.webp'), img('newcare3.webp')]
@@ -193,7 +193,7 @@ const cases = ref<CaseItem[]>([
   {
     title: "McDonald's The Hidden Campaign",
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "McDonald's hid easter eggs in games, Twitch streams and its app, including a custom Moonlander arcade game. I did the 3D design and animation.",
+    description: "McDonald's hid easter eggs across games, Twitch streams and its app — including a custom Moonlander arcade game. I created all 3D assets and animations in Cinema 4D: the spaceship, holograms, stair sequences and light animations.",
     tags: ['3D', 'Animation', 'Gaming', 'Webby Honoree 2025'],
     video: '/cases/videos/spaceship_horizontal.mp4',
     images: [img('imgi_4_image_ui.webp'), img('imgi_6_footer_bg.webp')]
@@ -201,7 +201,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'McNificents',
     client: "McDonald's — TBWA\\NEBOKO",
-    description: "3D character visualisation for McDonald's placemats, printed at scale across restaurants nationwide.",
+    description: "Created the 3D character models in Cinema 4D and rendered the visuals used on McDonald's placemats printed nationwide.",
     tags: ['3D', 'Print', 'Character Design'],
 
     images: [img('mcnificents0.webp'), ...range(1, 10).map(n => img('mcnificents' + n + '.webp'))]
@@ -209,7 +209,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'TOTO Tactics',
     client: 'Koning TOTO — TBWA\\NEBOKO',
-    description: "3D banner animation introducing Wesley Sneijder as Koning Toto for the Dutch betting brand's campaign.",
+    description: "Animated the full banner set in Cinema 4D: cloth banners that roll out and wave in the wind, featuring Wesley Sneijder as Koning Toto.",
     tags: ['3D Animation', 'Banner', 'Sports'],
 
     video: '/cases/videos/koningtoto.mp4'
@@ -217,7 +217,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'Odido Brand Launch',
     client: 'Odido (formerly T-Mobile NL) — TBWA\\NEBOKO',
-    description: "Helped design the launch campaign and led the development team through production. The T-Mobile to Odido rebrand won a Gold Dutch PR Award in 2024.",
+    description: "Oversaw the entire HTML5 banner development for the Odido (formerly T-Mobile) rebrand launch. Created the banner animations and guided dev teams on final delivery across HPTO and IAB formats. The campaign won a Gold Dutch PR Award 2024.",
     tags: ['Rebrand', 'Digital', 'Gold Dutch PR Award'],
 
     video: '/cases/videos/odidobanner.mp4'
@@ -225,7 +225,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'Schiphol World of Gifts',
     client: 'Schiphol Airport — TBWA\\NEBOKO',
-    description: "Designed the 3D gift box visuals for Schiphol Airport's holiday campaign, displayed across the terminal.",
+    description: "Designed and rendered the 3D gift boxes in Cinema 4D. The visuals were used across Schiphol Airport's Christmas campaign for three consecutive years.",
     tags: ['3D', 'Installation', 'Holiday'],
 
     video: '/cases/videos/schipholkerst.mp4',
@@ -234,7 +234,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'Food Token Soup (NFT)',
     client: "Branca's Kitchen — Personal",
-    description: "10,000 procedurally generated 3D soup cans from the 2021 NFT wave. A project to learn generative art and smart contracts. Most people do not care about soup.",
+    description: "10,000 procedurally generated 3D soup cans from the 2021 NFT wave. Created the generative pipeline in Cinema 4D. This project kicked off my journey into coding and Python.",
     tags: ['NFT', '3D', 'Generative', 'Coding'],
     video: '/cases/videos/foodtokensoup.mp4',
     images: range(1, 14).map(n => img('soup' + n + '.webp'))
@@ -242,7 +242,7 @@ const cases = ref<CaseItem[]>([
   {
     title: 'TBWA\\X Custom Arcade',
     client: 'TBWA\\X',
-    description: "Hand-built a working arcade cabinet for the TBWA\\X office, based on their backslash identity.",
+    description: "Hand-built a full arcade cabinet for the TBWA\\X office. MDF frame, lasercut panels, hand-painted finish. All wiring and electronics. Runs RetroPie on a Raspberry Pi 4. Also created the intro video in Cinema 4D.",
     tags: ['Hardware', 'Craftsmanship', 'Design'],
 
     images: range(1, 3).map(n => img('arcade' + n + '.webp'))

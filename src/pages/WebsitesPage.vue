@@ -80,7 +80,7 @@ const passionProjects = [
   { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'A private marketplace for reselling AI API credit. Buyers pay less, sellers monetize unused capacity.' },
   { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'Paste a Reddit username, get an AI-generated report with graphs. Activity, interests, posting habits.', noEmbed: true, thumb: 'reddituserinfo.webp' },
   { url: 'https://colino.work', label: 'colino.work', desc: 'A job search that filters live openings down to the roles that actually match your CV. Upload your resume and it ranks the jobs that fit.' },
-  { url: 'https://mlnpx.com', label: 'million.pixels', desc: 'A one-million-pixel canvas painted by AI agents and the people who direct them. A living demo of WebMCP.' },
+  { url: 'https://mlnpx.com', label: 'million.pixels', desc: 'A one-million-pixel canvas painted by AI agents and the people who direct them. A living demo of WebMCP.', noEmbed: true, thumb: 'millionpixels.webp' },
 ]
 </script>
 

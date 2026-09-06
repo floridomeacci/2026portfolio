@@ -22,7 +22,7 @@ const router = createRouter({
     {
       path: '/cases',
       name: 'cases',
-      component: () => import('./pages/CasesPage.vue')
+      component: () => import('./pages/CasesV2Page.vue')
     },
     {
       path: '/websites',
