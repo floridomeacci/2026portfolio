@@ -8,6 +8,8 @@
     </div>
     <!-- Header -->
     <header class="cv-header">
+      <router-link to="/" class="header-link">Home</router-link>
+      <span class="header-sep">/</span>
       <router-link to="/websites" class="header-link">Websites</router-link>
       <span class="header-sep">/</span>
       <router-link to="/cases" class="header-link">Cases</router-link>

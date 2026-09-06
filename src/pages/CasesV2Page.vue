@@ -1,6 +1,8 @@
 <template>
   <div class="cv-page">
     <header class="cv-header">
+      <router-link to="/" class="header-link">Home</router-link>
+      <span class="header-sep">/</span>
       <router-link to="/websites" class="header-link">Websites</router-link>
       <span class="header-sep">/</span>
       <router-link to="/cases" class="header-link">Cases</router-link>
@@ -27,7 +29,6 @@
             <div class="entry-tags">
               <span v-for="tag in c.tags" :key="tag" class="entry-tag">{{ tag }}</span>
             </div>
-            <div class="entry-count" v-if="mediaItems(c)">{{ mediaItems(c) }}</div>
             <svg class="chevron" :class="{ rotated: expandedCase === c.origIdx }" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </div>
@@ -39,6 +40,8 @@
     <Transition name="overlay">
       <div v-if="expandedCase !== null && !transitioning" class="case-overlay" @click.self="closeOverlay">
         <div class="overlay-hdr">
+          <router-link to="/" class="header-link">Home</router-link>
+          <span class="header-sep">/</span>
           <router-link to="/websites" class="header-link">Websites</router-link>
           <span class="header-sep">/</span>
           <router-link to="/cases" class="header-link">Cases</router-link>
@@ -242,11 +245,6 @@ const img = (name: string) => '/cases/images/' + name
 const posterFor = (v: string) => v.replace('/cases/videos/', '/cases/videos/posters/').replace('.mp4', '.webp')
 const range = (s: number, e: number) => Array.from({ length: e - s + 1 }, (_, i) => s + i)
 
-const mediaItems = (c: CaseItem) => {
-  const n = (c.images?.length || 0) + (c.video ? 1 : 0) + (c.videos?.length || 0) + (c.youtube ? 1 : 0)
-  return n > 0 ? n + ' item' + (n > 1 ? 's' : '') : ''
-}
-
 const cases = ref<CaseItem[]>([
   {
     title: "McDonald's Fan Favorites",
@@ -308,7 +306,7 @@ const cases = ref<CaseItem[]>([
     description: "A mobile web app for Paris Fashion Week 2025: upload a selfie and get dropped into a Palm Beach scene. I built the entire thing end-to-end. Backend on n8n with Replicate for AI, AWS for NSFW detection. Frontend in React. Cloudflare Workers, R2 storage, Hetzner server scaling to 500 concurrent executions.",
     tags: ['AI', 'React', 'n8n', 'Fashion', 'Web App'],
     video: '/cases/videos/nasa_ss26.mp4',
-    images: [img('nasa1.webp'), img('nasa2.webp')]
+    images: [img('nasa2.webp')]
   },
   {
     title: 'Abdulla Al Ghurair Foundation',
@@ -533,14 +531,6 @@ watch(() => route.hash, (hash) => {
   border-radius: 3px;
   background: oklch(15% 0.008 45 / 0.04);
   color: var(--ink-muted);
-  white-space: nowrap;
-}
-
-.entry-count {
-  font-family: var(--font-ui);
-  font-size: var(--text-xs);
-  font-weight: 300;
-  color: var(--ink-faint);
   white-space: nowrap;
 }
 
