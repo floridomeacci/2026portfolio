@@ -78,24 +78,21 @@
                 ></iframe>
               </div>
 
-              <div v-if="cases[expandedCase].video" class="entry-media">
-                <video :src="cases[expandedCase].video" :poster="posterFor(cases[expandedCase].video)" controls preload="metadata" class="entry-video"></video>
-              </div>
-
-              <div v-if="cases[expandedCase].videos && cases[expandedCase].videos.length" v-for="(vid, vi) in cases[expandedCase].videos" :key="'v'+vi" class="entry-media">
-                <video :src="vid" :poster="posterFor(vid)" controls preload="metadata" class="entry-video"></video>
-              </div>
-
-              <div v-if="cases[expandedCase].images && cases[expandedCase].images.length" class="entry-images" :class="{ 'dark-bg': cases[expandedCase].darkBg }">
-                <img
-                  v-for="(src, j) in cases[expandedCase].images"
-                  :key="j"
-                  :src="src"
-                  :alt="cases[expandedCase].title + ' - ' + (j + 1)"
-                  class="entry-img"
-                  loading="lazy"
-                />
-              </div>
+              <template v-for="(b, bi) in orderedMedia(cases[expandedCase])" :key="bi">
+                <div v-if="b.type === 'video'" class="entry-media">
+                  <video :src="b.src" :poster="posterFor(b.src || '')" controls preload="metadata" class="entry-video"></video>
+                </div>
+                <div v-else-if="b.type === 'image'" class="entry-media">
+                  <img
+                    :src="b.src"
+                    :alt="cases[expandedCase].title"
+                    class="entry-img"
+                    :class="{ 'img-dark': cases[expandedCase].darkBg }"
+                    loading="lazy"
+                  />
+                </div>
+                <p v-else class="entry-caption">{{ b.text }}</p>
+              </template>
             </template>
 
             <div ref="sentinelRef" class="scroll-sentinel"></div>
@@ -236,14 +233,30 @@ const overlayVisible = computed(() => expandedCase.value !== null || transitioni
 
 const totalCases = computed(() => cases.value.length)
 
+interface MediaBlock {
+  type: 'video' | 'image' | 'text'
+  src?: string
+  text?: string
+}
+
 interface CaseItem {
   title: string; client: string; description: string
   tags: string[]; video?: string; videos?: string[]; youtube?: string; images?: string[]; darkBg?: boolean; projectUrl?: string
+  blocks?: MediaBlock[]
 }
 
 const img = (name: string) => '/cases/images/' + name
 const posterFor = (v: string) => v.replace('/cases/videos/', '/cases/videos/posters/').replace('.mp4', '.webp')
 const range = (s: number, e: number) => Array.from({ length: e - s + 1 }, (_, i) => s + i)
+
+const orderedMedia = (c: CaseItem): MediaBlock[] => {
+  if (c.blocks && c.blocks.length) return c.blocks
+  const list: MediaBlock[] = []
+  if (c.video) list.push({ type: 'video', src: c.video })
+  if (c.videos) c.videos.forEach(v => list.push({ type: 'video', src: v }))
+  if (c.images) c.images.forEach(i => list.push({ type: 'image', src: i }))
+  return list
+}
 
 const cases = ref<CaseItem[]>([
   {
@@ -252,7 +265,16 @@ const cases = ref<CaseItem[]>([
     description: "Ran this three times — Netherlands, Portugal, Spain. I built the pipeline in Python. For each market I generated every product with AI (Flux, later ChatGPT), combined them into millions of menu combinations at scale, and handled all uploads and naming. Over 4 million unique combos. Design teams did post-editing for a week.",
     tags: ['AI', 'Pipeline', 'Generative'],
     darkBg: true,
-    images: [img('fanfavorites.webp'), img('fanfavo1.webp'), img('fanfavo2.webp'), img('fanfavo3.webp'), img('fanfavo4.webp')]
+    blocks: [
+      { type: 'image', src: img('fanfavorites.webp') },
+      { type: 'text', text: 'Final batch of 4 million for Spain. Each card consists of individually generated products, combined and placed together using python. Hardest part uploading and serving 4 million images in gcloud.' },
+      { type: 'image', src: img('fanfavo1.webp') },
+      { type: 'image', src: img('fanfavo4.webp') },
+      { type: 'text', text: 'The initial million images used in the dutch market used the image model Flux. We later switched to GPT-Image.' },
+      { type: 'image', src: img('fanfavo2.webp') },
+      { type: 'image', src: img('fanfavo3.webp') },
+      { type: 'text', text: 'A handful of the different burgers we proposed. Only a select few made it past the brand police.' }
+    ]
   },
   {
     title: 'LG Radio Optimism',
@@ -693,22 +715,26 @@ watch(() => route.hash, (hash) => {
   background: var(--ink);
 }
 
-.entry-images {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .entry-img {
   width: 100%;
   display: block;
   border-radius: 3px;
 }
 
-.entry-images.dark-bg .entry-img {
+.entry-img.img-dark {
   background: oklch(25% 0.008 45);
   padding: 20px;
   border-radius: 6px;
+}
+
+.entry-caption {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: 170%;
+  color: var(--ink-muted);
+  margin: 0 0 var(--space-md);
+  padding: 0 2px;
 }
 
 .arrow {
