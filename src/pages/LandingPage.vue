@@ -260,16 +260,16 @@ const onMouseMove = (e: MouseEvent) => {
 }
 
 const topCases = [
-  { title: "McDonald's Fan Favorites", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/fan_favorites_hero.webp', slug: 'fan-favorites' },
+  { title: "McDonald's Fan Favorites", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/fan_favorites_hero.webp', slug: 'mcdonald-s-fan-favorites' },
   { title: 'LG Radio Optimism', client: 'LG Electronics — Global', img: '/cases/images/lg_hero.webp', slug: 'lg-radio-optimism' },
   { title: "McDonald's Olifantenpaadjes", client: "McDonald's — TBWA\\NEBOKO", img: '/images/olifantenpaadjes1.jpeg', slug: 'mcdonald-s-olifantenpaadjes' },
-  { title: 'TBWA\\X Custom Arcade', client: 'TBWA\\X', img: '/cases/images/arcade_hero.webp', slug: 'arcade' },
-  { title: "McDonald's Delivery Detector", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/mcdeliverydetector.avif', slug: 'delivery-detector' },
-  { title: 'SS26 New Amsterdam Surf', client: 'New Amsterdam Surf Association', img: '/cases/images/nasa_thumb.webp', slug: 'ss26-new-amsterdam' },
-  { title: 'Al Ghurair Foundation', client: 'Abdulla Al Ghurair Foundation', img: '/cases/images/abdul_thumb.webp', slug: 'abdulla-al-ghurair' },
-  { title: 'New Care Supplements', client: 'New Care — Sabatoka', img: '/cases/images/newcare_thumb.webp', slug: 'new-care' },
-  { title: 'Food Token Soup', client: "Branca's Kitchen — Personal", img: '/cases/images/food_token_soup_hero.webp', slug: 'food-token-soup' },
-  { title: "McDonald's Family Mode", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/imgi_1_hero.webp', slug: 'family-mode' },
+  { title: 'TBWA\\X Custom Arcade', client: 'TBWA\\X', img: '/cases/images/arcade_hero.webp', slug: 'tbwa-x-custom-arcade' },
+  { title: "McDonald's Delivery Detector", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/mcdeliverydetector.avif', slug: 'mcdonald-s-delivery-detector' },
+  { title: 'SS26 New Amsterdam Surf Association', client: 'New Amsterdam Surf Association', img: '/cases/images/nasa_thumb.webp', slug: 'ss26-new-amsterdam-surf-association' },
+  { title: 'Abdulla Al Ghurair Foundation', client: 'Abdulla Al Ghurair Foundation', img: '/cases/images/abdul_thumb.webp', slug: 'abdulla-al-ghurair-foundation' },
+  { title: 'New Care Supplements', client: 'New Care — Sabatoka', img: '/cases/images/newcare_thumb.webp', slug: 'new-care-supplements' },
+  { title: 'Food Token Soup (NFT)', client: "Branca's Kitchen — Personal", img: '/cases/images/food_token_soup_hero.webp', slug: 'food-token-soup-nft' },
+  { title: "McDonald's Family Mode", client: "McDonald's — TBWA\\NEBOKO", img: '/cases/images/imgi_1_hero.webp', slug: 'mcdonald-s-family-mode' },
 ]
 
 const loopCases = computed(() => [...topCases, ...topCases, ...topCases])
@@ -281,6 +281,8 @@ const passionProjects = [
   { url: 'https://www.latentsearch.net/', label: 'latentsearch.net', desc: 'Every search result is AI-generated. It looks normal, but the content is fake.' },
   { url: 'https://creditswap.app', label: 'creditswap.app', desc: 'A private marketplace for reselling AI API credit. Buyers pay less, sellers monetize unused capacity.' },
   { url: 'https://reddituser.info', label: 'reddituser.info', desc: 'Paste a Reddit username, get an AI-generated report with graphs. Activity, interests, posting habits.', noEmbed: true, thumb: 'reddituserinfo.webp' },
+  { url: 'https://colino.work', label: 'colino.work', desc: 'A job search that filters live openings down to the roles that actually match your CV. Upload your resume and it ranks the jobs that fit.' },
+  { url: 'https://mlnpx.com', label: 'million.pixels', desc: 'A one-million-pixel canvas painted by AI agents and the people who direct them. A living demo of WebMCP.' },
 ]
 
 const loopPassion = computed(() => [...passionProjects, ...passionProjects, ...passionProjects])
